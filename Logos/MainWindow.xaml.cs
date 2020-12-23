@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SourceChord.FluentWPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,10 @@ namespace Logos
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
+        public static string ProductName => Application.ResourceAssembly.GetName().Name;
+
         public MainWindow()
         {
             InitializeComponent();

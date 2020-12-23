@@ -10,4 +10,9 @@
     <Copyright>© 2020 迦南地</Copyright>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentWPF" Version="0.8.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
+  </ItemGroup>
+
 </Project>
