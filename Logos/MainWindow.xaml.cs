@@ -26,6 +26,26 @@ namespace Logos
         public MainWindow()
         {
             InitializeComponent();
+
+            MenuItemText.IsSelected = true;
+        }
+
+        private void MenuItemText_Selected(object sender, RoutedEventArgs e)
+        {
+            ContentGrid.Children.Clear();
+            ContentGrid.Children.Add(new TextContent());
+        }
+
+        private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
+        {
+            ContentGrid.Children.Clear();
+            ContentGrid.Children.Add(new DrawContent());
+        }
+
+        private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
+        {
+            ContentGrid.Children.Clear();
+            ContentGrid.Children.Add(new AboutContent());
         }
     }
 }
