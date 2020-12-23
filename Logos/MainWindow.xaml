@@ -10,7 +10,46 @@
         Height="494" Width="800"
         fw:AcrylicWindow.ExtendViewIntoTitleBar="True"
         WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="494"
-        DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}">
+        DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
+    <fw:AcrylicWindow.Resources>
+        <Style x:Key="ListViewItemContainerStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" ClipToBounds="{TemplateBinding ClipToBounds}" Margin="{TemplateBinding Margin}">
+                            <Grid>
+                                <Border x:Name="MouseOverBorder" Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" Opacity="0"/>
+                                <Border x:Name="SelectedBorder" Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+                                <wpf:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" Focusable="False" Feedback="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" RecognizesAccessKey="False" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value=".56"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" Value="#C06D6D6D"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </fw:AcrylicWindow.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
@@ -23,22 +62,28 @@
                     <TextBlock Text="{Binding Path=ProductName}"
                                FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Consolas"/>
                 </StackPanel>
-                <ListView Name ="MenuList" FontSize="15">
-                    <ListViewItem Name="MenuItemText" Padding="1">
+                <ListView ItemContainerStyle="{DynamicResource ListViewItemContainerStyle}" Name ="MenuList" FontSize="15">
+                    <ListViewItem Name="MenuItemText" Padding="1" IsSelected="True">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="LetterTBoxOutline" Margin="15"/>
+                            <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListViewItem}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"/>
+                            <materialDesign:PackIcon Kind="LetterTBoxOutline" Margin="10,15,15,15"/>
                             <TextBlock Text="文字" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Name="MenuItemDraw" Padding="1">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Draw" Margin="15"/>
+                            <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListViewItem}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"/>
+                            <materialDesign:PackIcon Kind="Draw" Margin="10,15,15,15"/>
                             <TextBlock Text="繪圖" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Name="MenuItemAbout" Padding="1">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="AboutOutline" Margin="15"/>
+                            <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
+                                       Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListViewItem}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"/>
+                            <materialDesign:PackIcon Kind="AboutOutline" Margin="10,15,15,15"/>
                             <TextBlock Text="關於" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
