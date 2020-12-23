@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -67,6 +68,34 @@ namespace Logos
         private void MenuItem_MouseLeave(object sender, MouseEventArgs e)
         {
             (sender as ListViewItem).Background = null;
+        }
+    }
+
+    public class BoolToVisibilityConverter : MarkupExtension, IValueConverter
+    {
+        public BoolToVisibilityConverter()
+        {
+            TrueValue = Visibility.Visible;
+            FalseValue = Visibility.Collapsed;
+        }
+
+        public Visibility TrueValue { get; set; }
+        public Visibility FalseValue { get; set; }
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            bool val = System.Convert.ToBoolean(value);
+            return val ? TrueValue : FalseValue;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return TrueValue.Equals(value);
+        }
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return this;
         }
     }
 }
