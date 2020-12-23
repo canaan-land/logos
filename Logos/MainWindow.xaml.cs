@@ -47,5 +47,26 @@ namespace Logos
             ContentGrid.Children.Clear();
             ContentGrid.Children.Add(new AboutContent());
         }
+
+        private void MenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            ListViewItem item = sender as ListViewItem;
+            Point point = Mouse.GetPosition(item);
+            RadialGradientBrush radialGradient = new RadialGradientBrush()
+            {
+                GradientOrigin = new Point(point.X / MenuItemAbout.ActualWidth, point.Y / MenuItemAbout.ActualHeight),
+                RadiusX = 1.0,
+                RadiusY = 1.0
+            };
+            radialGradient.Center = radialGradient.GradientOrigin;
+            radialGradient.GradientStops.Add(new GradientStop(Color.FromArgb(0xC0, 0x6D, 0x6D, 0x6D), 0.0));
+            radialGradient.GradientStops.Add(new GradientStop(Color.FromArgb(0xC0, 0x42, 0x42, 0x42), 1.0));
+            item.Background = radialGradient;
+        }
+
+        private void MenuItem_MouseLeave(object sender, MouseEventArgs e)
+        {
+            (sender as ListViewItem).Background = null;
+        }
     }
 }
