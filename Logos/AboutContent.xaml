@@ -6,14 +6,56 @@
              xmlns:local="clr-namespace:Logos"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="KeyTextFont" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="微軟正黑體"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ValueTextFont" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="微軟正黑體"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+    </UserControl.Resources>
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <TextBlock Text="{Binding MenuItemAboutString}" FontSize="30" Margin="20,50,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
-            <Grid>
-                
-            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="20" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="名稱" Style="{DynamicResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ProductName}" Style="{DynamicResource ValueTextFont}"/>
+                        
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="版本" Style="{DynamicResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ProductVersion}" Style="{DynamicResource ValueTextFont}"/>
+                        
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{DynamicResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{DynamicResource ValueTextFont}"/>
+                        
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="圖標設計" Style="{DynamicResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="David" Style="{DynamicResource ValueTextFont}"/>
+                        
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="版權所有" Style="{DynamicResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020 迦南地" Style="{DynamicResource ValueTextFont}"/>
+                    </Grid>
+                </ScrollViewer>
+            </StackPanel>
         </DockPanel>
     </Grid>
 </UserControl>

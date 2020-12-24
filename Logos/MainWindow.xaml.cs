@@ -23,6 +23,7 @@ namespace Logos
     public partial class MainWindow
     {
         public static string ProductName => Application.ResourceAssembly.GetName().Name;
+        public static string ProductVersion => Application.ResourceAssembly.GetName().Version.ToString(3);
         public string MenuItemTextString
         {
             get

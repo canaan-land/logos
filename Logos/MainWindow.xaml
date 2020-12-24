@@ -38,12 +38,6 @@
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="Opacity" Value=".56"/>
                             </Trigger>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsMouseOver" Value="True"/>
-                                </MultiTrigger.Conditions>
-                                <Setter Property="Background" Value="#C06D6D6D"/>
-                            </MultiTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
