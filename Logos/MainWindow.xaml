@@ -8,10 +8,10 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Height="494" Width="800"
-        fw:AcrylicWindow.ExtendViewIntoTitleBar="True"
-        WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="494"
+        ExtendViewIntoTitleBar="True"
+        WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="494" AllowsTransparency="False" WindowStyle="None"
         DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}"
-    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
     <fw:AcrylicWindow.Resources>
         <Style x:Key="ListViewItemContainerStyle" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="Transparent"/>
