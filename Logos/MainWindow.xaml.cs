@@ -23,6 +23,30 @@ namespace Logos
     public partial class MainWindow
     {
         public static string ProductName => Application.ResourceAssembly.GetName().Name;
+        public string MenuItemTextString
+        {
+            get
+            {
+                StackPanel sp = MenuItemText.Content as StackPanel;
+                return sp.Children.OfType<TextBlock>().First().Text;
+            }
+        }
+        public string MenuItemDrawString
+        {
+            get
+            {
+                StackPanel sp = MenuItemDraw.Content as StackPanel;
+                return sp.Children.OfType<TextBlock>().First().Text;
+            }
+        }
+        public string MenuItemAboutString
+        {
+            get
+            {
+                StackPanel sp = MenuItemAbout.Content as StackPanel;
+                return sp.Children.OfType<TextBlock>().First().Text;
+            }
+        }
 
         public MainWindow()
         {
@@ -34,19 +58,19 @@ namespace Logos
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
         {
             ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(new TextContent());
+            ContentGrid.Children.Add(new TextContent() { DataContext = this });
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
         {
             ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(new DrawContent());
+            ContentGrid.Children.Add(new DrawContent() { DataContext = this });
         }
 
         private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
         {
             ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(new AboutContent());
+            ContentGrid.Children.Add(new AboutContent() { DataContext = this });
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
