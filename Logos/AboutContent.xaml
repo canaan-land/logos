@@ -9,12 +9,12 @@
     <UserControl.Resources>
         <Style x:Key="KeyTextFont" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="微軟正黑體"/>
+            <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style x:Key="ValueTextFont" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="微軟正黑體"/>
+            <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="Gray"/>
         </Style>
@@ -22,28 +22,28 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding MenuItemAboutString}" FontSize="30" Margin="20,50,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
+                <TextBlock Text="{Binding Path=MenuItemAboutString}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="Microsoft JhengHei"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid Margin="20" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
                         
                         <TextBlock Grid.Row="0" Grid.Column="0" Text="名稱" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ProductName}" Style="{DynamicResource ValueTextFont}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=ProductName}" Style="{DynamicResource ValueTextFont}"/>
                         
                         <TextBlock Grid.Row="1" Grid.Column="0" Text="版本" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ProductVersion}" Style="{DynamicResource ValueTextFont}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductVersion}" Style="{DynamicResource ValueTextFont}"/>
                         
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{DynamicResource KeyTextFont}"/>
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{DynamicResource ValueTextFont}"/>

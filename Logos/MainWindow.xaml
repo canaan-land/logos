@@ -56,36 +56,36 @@
                     <TextBlock Text="{Binding Path=ProductName}"
                                FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Consolas"/>
                 </StackPanel>
-                <ListView ItemContainerStyle="{DynamicResource ListViewItemContainerStyle}" Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListViewItem Name="MenuItemText" Padding="1" Selected="MenuItemText_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
+                <ListView ItemContainerStyle="{DynamicResource ListViewItemContainerStyle}" x:Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListViewItem x:Name="MenuItemText" Padding="1" Selected="MenuItemText_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                        Visibility="{Binding ElementName=MenuItemText, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                            <materialDesign:PackIcon Kind="LetterTBoxOutline" Margin="10,15,15,15"/>
-                            <TextBlock Text="文字" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="FormatText" Margin="10,15,15,15"/>
+                            <TextBlock Text="文字" FontFamily="Microsoft JhengHei" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Name="MenuItemDraw" Padding="1" Selected="MenuItemDraw_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
+                    <ListViewItem x:Name="MenuItemDraw" Padding="1" Selected="MenuItemDraw_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                        Visibility="{Binding ElementName=MenuItemDraw, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
                             <materialDesign:PackIcon Kind="Draw" Margin="10,15,15,15"/>
-                            <TextBlock Text="繪圖" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            <TextBlock Text="繪圖" FontFamily="Microsoft JhengHei" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Name="MenuItemAbout" Padding="1" Selected="MenuItemAbout_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
+                    <ListViewItem x:Name="MenuItemAbout" Padding="1" Selected="MenuItemAbout_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                        Visibility="{Binding ElementName=MenuItemAbout, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
                             <materialDesign:PackIcon Kind="AboutOutline" Margin="10,15,15,15"/>
-                            <TextBlock Text="關於" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            <TextBlock Text="關於" FontFamily="Microsoft JhengHei" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
             </DockPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Name="ContentGrid">
+        <Grid Grid.Column="1" x:Name="ContentGrid">
 
         </Grid>
     </Grid>

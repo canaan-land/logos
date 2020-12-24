@@ -49,6 +49,9 @@ namespace Logos
             }
         }
 
+        public string TextString { get; set; }
+        public string TextFont { get; set; } = "Microsoft JhengHei";
+
         public MainWindow()
         {
             InitializeComponent();
