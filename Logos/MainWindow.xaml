@@ -57,12 +57,12 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" fw:PointerTracker.Enabled="True" Background="#C0424242">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" DockPanel.Dock="Top">
                     <TextBlock Text="{Binding Path=ProductName}"
                                FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Consolas"/>
                 </StackPanel>
-                <ListView ItemContainerStyle="{DynamicResource ListViewItemContainerStyle}" Name ="MenuList" FontSize="15">
+                <ListView ItemContainerStyle="{DynamicResource ListViewItemContainerStyle}" Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ListViewItem Name="MenuItemText" Padding="1" Selected="MenuItemText_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
@@ -88,7 +88,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-            </StackPanel>
+            </DockPanel>
         </Grid>
 
         <Grid Grid.Column="1" Name="ContentGrid">
