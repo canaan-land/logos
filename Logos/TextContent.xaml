@@ -10,13 +10,13 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding Path=MenuItemTextString}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="Microsoft JhengHei"/>
+                <TextBlock Text="{Binding Path=MenuItemTextString}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer Width="400" VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,25" Height="50">
-                            <TextBox x:Name="TextString" FontSize="20" FontFamily="Microsoft JhengHei"
+                            <TextBox x:Name="TextString" FontSize="20" FontFamily="微軟正黑體"
                                  materialDesign:HintAssist.Hint="輸入欲顯示文字" Width="350" VerticalAlignment="Bottom"
                                  Text="{Binding Path=TestString, Mode=TwoWay}" DockPanel.Dock="Left" Margin="0,0,10,0"/>
                             <Button x:Name="SendButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand"
@@ -24,8 +24,8 @@
                                 <materialDesign:PackIcon Kind="Send"/>
                             </Button>
                         </StackPanel>
-                        <TextBlock Text="字型" FontSize="15" FontFamily="Microsoft JhengHei" HorizontalAlignment="Left"/>
-                        <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="Microsoft JhengHei" Width="250"
+                        <TextBlock Text="字型" FontSize="15" FontFamily="微軟正黑體" HorizontalAlignment="Left"/>
+                        <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="250"
                                   materialDesign:HintAssist.Hint="字型"
                                   ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" HorizontalAlignment="Left"
                                   Text="{Binding Path=TextFont, Mode=TwoWay}"/>

@@ -50,7 +50,7 @@ namespace Logos
         }
 
         public string TextString { get; set; }
-        public string TextFont { get; set; } = "Microsoft JhengHei";
+        public string TextFont { get; set; } = "微軟正黑體";
 
         public MainWindow()
         {

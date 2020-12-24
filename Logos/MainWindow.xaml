@@ -62,7 +62,7 @@
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                        Visibility="{Binding ElementName=MenuItemText, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
                             <materialDesign:PackIcon Kind="FormatText" Margin="10,15,15,15"/>
-                            <TextBlock Text="文字" FontFamily="Microsoft JhengHei" VerticalAlignment="Center"/>
+                            <TextBlock Text="文字" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="MenuItemDraw" Padding="1" Selected="MenuItemDraw_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
@@ -70,7 +70,7 @@
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                        Visibility="{Binding ElementName=MenuItemDraw, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
                             <materialDesign:PackIcon Kind="Draw" Margin="10,15,15,15"/>
-                            <TextBlock Text="繪圖" FontFamily="Microsoft JhengHei" VerticalAlignment="Center"/>
+                            <TextBlock Text="繪圖" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="MenuItemAbout" Padding="1" Selected="MenuItemAbout_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
@@ -78,7 +78,7 @@
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                        Visibility="{Binding ElementName=MenuItemAbout, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
                             <materialDesign:PackIcon Kind="AboutOutline" Margin="10,15,15,15"/>
-                            <TextBlock Text="關於" FontFamily="Microsoft JhengHei" VerticalAlignment="Center"/>
+                            <TextBlock Text="關於" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

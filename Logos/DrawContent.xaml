@@ -9,7 +9,7 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding Path=MenuItemDrawString}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="Microsoft JhengHei"/>
+                <TextBlock Text="{Binding Path=MenuItemDrawString}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
             <Grid>
 
