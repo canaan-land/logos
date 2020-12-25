@@ -19,10 +19,12 @@
                             <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
+                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
                                           ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}" HorizontalAlignment="Left"
-                                          Text="{Binding Path=TextFont, Mode=TwoWay}"/>
+                                          Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0"/>
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
-                                          materialDesign:HintAssist.Hint="大小" IsEditable="True">
+                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          materialDesign:HintAssist.Hint="大小" IsEditable="True" Margin="1,0,10,0">
                                     <ComboBoxItem>8</ComboBoxItem>
                                     <ComboBoxItem>9</ComboBoxItem>
                                     <ComboBoxItem>10</ComboBoxItem>
