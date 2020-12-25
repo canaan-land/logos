@@ -10,11 +10,33 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding Path=MenuItemTextString}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
+                <TextBlock Text="{Binding Path=MenuItemTextString}" FontSize="30" Margin="20,40,10,20" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <ScrollViewer Width="400" VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel Orientation="Vertical">
+                        <ToolBarTray>
+                            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                                <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
+                                          materialDesign:HintAssist.Hint="字型"
+                                          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}" HorizontalAlignment="Left"
+                                          Text="{Binding Path=TextFont, Mode=TwoWay}"/>
+                                <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
+                                          materialDesign:HintAssist.Hint="大小" IsEditable="True"/>
+                                <Separator/>
+                                <ListBox SelectionMode="Extended">
+                                    <ListBoxItem x:Name="BoldCheckbox">
+                                        <materialDesign:PackIcon Kind="FormatBold"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem x:Name="ItalicCheckbox">
+                                        <materialDesign:PackIcon Kind="FormatItalic"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem x:Name="UnderlineCheckbox">
+                                        <materialDesign:PackIcon Kind="FormatUnderline"/>
+                                    </ListBoxItem>
+                                </ListBox>
+                            </ToolBar>
+                        </ToolBarTray>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,25" Height="50">
                             <TextBox x:Name="TextString" FontSize="20" FontFamily="微軟正黑體"
                                  materialDesign:HintAssist.Hint="輸入欲顯示文字" Width="350" VerticalAlignment="Bottom"
@@ -23,12 +45,7 @@
                                     VerticalAlignment="Bottom">
                                 <materialDesign:PackIcon Kind="Send"/>
                             </Button>
-                        </StackPanel>
-                        <TextBlock Text="字型" FontSize="15" FontFamily="微軟正黑體" HorizontalAlignment="Left"/>
-                        <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="250"
-                                  materialDesign:HintAssist.Hint="字型"
-                                  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}" HorizontalAlignment="Left"
-                                  Text="{Binding Path=TextFont, Mode=TwoWay}"/>
+                        </StackPanel>                        
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
