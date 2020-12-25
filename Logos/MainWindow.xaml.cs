@@ -112,8 +112,7 @@ namespace Logos
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            bool val = System.Convert.ToBoolean(value);
-            return val ? TrueValue : FalseValue;
+            return System.Convert.ToBoolean(value) ? TrueValue : FalseValue;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
