@@ -54,13 +54,13 @@
                                 </ListBox>
                             </ToolBar>
                         </ToolBarTray>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,25" Height="50">
-                            <TextBox x:Name="StringTextBox" FontSize="20"
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                            <TextBox x:Name="StringTextBox" FontSize="25" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                                      FontFamily="{Binding ElementName=FontComboBox, Path=Text, Converter={local:StringToFontFamilyConverter}, Mode=OneWay}"
                                      FontWeight="{Binding ElementName=BoldCheckbox, Path=IsSelected, Converter={local:BoolToBoldConverter}, Mode=OneWay}"
                                      FontStyle="{Binding ElementName=ItalicCheckbox, Path=IsSelected, Converter={local:BoolToItalicConverter}, Mode=OneWay}"
                                      TextDecorations="{Binding ElementName=UnderlineCheckbox, Path=IsSelected, Converter={local:BoolToUnderlineConverter}, Mode=OneWay}"
-                                     materialDesign:HintAssist.Hint="輸入欲顯示文字" Width="350" VerticalAlignment="Bottom"
+                                     materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TextString, Mode=TwoWay}" DockPanel.Dock="Left" Margin="0,0,10,0"/>
                             <Button x:Name="SendButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand"
                                     VerticalAlignment="Bottom">
