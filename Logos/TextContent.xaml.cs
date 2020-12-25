@@ -36,17 +36,12 @@ namespace Logos
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            FontFamily fontFamily = new FontFamily("微軟正黑體");
-            if (value != null)
-            {
-                fontFamily = new FontFamily(value.ToString());
-            }
-            return fontFamily;
+            return new FontFamily(value.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return null;
+            return (value as FontFamily).ToString();
         }
 
         public override object ProvideValue(IServiceProvider serviceProvider)
