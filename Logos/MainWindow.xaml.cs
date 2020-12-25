@@ -24,7 +24,7 @@ namespace Logos
     {
         public static string ProductName => Application.ResourceAssembly.GetName().Name;
         public static string ProductVersion => Application.ResourceAssembly.GetName().Version.ToString(3);
-        public string MenuItemTextString
+        public string MenuItemTextName
         {
             get
             {
@@ -32,7 +32,7 @@ namespace Logos
                 return sp.Children.OfType<TextBlock>().First().Text;
             }
         }
-        public string MenuItemDrawString
+        public string MenuItemDrawName
         {
             get
             {
@@ -40,7 +40,7 @@ namespace Logos
                 return sp.Children.OfType<TextBlock>().First().Text;
             }
         }
-        public string MenuItemAboutString
+        public string MenuItemAboutName
         {
             get
             {
