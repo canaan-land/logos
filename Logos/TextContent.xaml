@@ -22,7 +22,24 @@
                                           ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}" HorizontalAlignment="Left"
                                           Text="{Binding Path=TextFont, Mode=TwoWay}"/>
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
-                                          materialDesign:HintAssist.Hint="大小" IsEditable="True"/>
+                                          materialDesign:HintAssist.Hint="大小" IsEditable="True">
+                                    <ComboBoxItem>8</ComboBoxItem>
+                                    <ComboBoxItem>9</ComboBoxItem>
+                                    <ComboBoxItem>10</ComboBoxItem>
+                                    <ComboBoxItem>11</ComboBoxItem>
+                                    <ComboBoxItem>12</ComboBoxItem>
+                                    <ComboBoxItem>14</ComboBoxItem>
+                                    <ComboBoxItem>16</ComboBoxItem>
+                                    <ComboBoxItem>18</ComboBoxItem>
+                                    <ComboBoxItem>20</ComboBoxItem>
+                                    <ComboBoxItem>22</ComboBoxItem>
+                                    <ComboBoxItem>24</ComboBoxItem>
+                                    <ComboBoxItem>26</ComboBoxItem>
+                                    <ComboBoxItem>28</ComboBoxItem>
+                                    <ComboBoxItem>36</ComboBoxItem>
+                                    <ComboBoxItem>48</ComboBoxItem>
+                                    <ComboBoxItem>72</ComboBoxItem>
+                                </ComboBox>
                                 <Separator/>
                                 <ListBox SelectionMode="Extended">
                                     <ListBoxItem x:Name="BoldCheckbox">
