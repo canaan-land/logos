@@ -27,7 +27,7 @@
                         <TextBlock Text="字型" FontSize="15" FontFamily="微軟正黑體" HorizontalAlignment="Left"/>
                         <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="250"
                                   materialDesign:HintAssist.Hint="字型"
-                                  ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" HorizontalAlignment="Left"
+                                  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}" HorizontalAlignment="Left"
                                   Text="{Binding Path=TextFont, Mode=TwoWay}"/>
                     </StackPanel>
                 </ScrollViewer>

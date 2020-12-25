@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,9 @@ namespace Logos
     /// </summary>
     public partial class TextContent : UserControl
     {
+        public ObservableCollection<string> FontCollection => new ObservableCollection<string>(
+            from font in new InstalledFontCollection().Families select font.Name);
+
         public TextContent()
         {
             InitializeComponent();
