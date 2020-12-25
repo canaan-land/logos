@@ -39,7 +39,7 @@
                         </ToolBarTray>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,25" Height="50">
                             <TextBox x:Name="TextString" FontSize="20"
-                                    FontFamily="{Binding ElementName=FontComboBox, Path=Text, Converter={local:StringToFontFamilyConverter}, Mode=OneWay}"
+                                     FontFamily="{Binding ElementName=FontComboBox, Path=Text, Converter={local:StringToFontFamilyConverter}, Mode=OneWay}"
                                      materialDesign:HintAssist.Hint="輸入欲顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TestString, Mode=TwoWay}" DockPanel.Dock="Left" Margin="0,0,10,0"/>
                             <Button x:Name="SendButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand"
