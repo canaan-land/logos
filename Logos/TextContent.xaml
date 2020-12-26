@@ -20,13 +20,26 @@
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
-                                          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}" HorizontalAlignment="Left"
-                                          Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0">
+                                          HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True"
+                                          Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0"
+                                          ItemTemplate="{DynamicResource FontTemplate}"
+                                          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <VirtualizingStackPanel/>
                                         </ItemsPanelTemplate>
                                     </ComboBox.ItemsPanel>
+                                    <ComboBox.Resources>
+                                        <Style x:Key="FontStyle">
+                                            <Setter Property="Control.FontFamily" Value="{Binding}"/>
+                                            <Setter Property="Control.FontSize" Value="15"/>
+                                        </Style>
+                                        <DataTemplate x:Key="FontTemplate">
+                                            <StackPanel VirtualizingStackPanel.IsVirtualizing="True">
+                                                <TextBlock Text="{Binding}" ToolTip="{Binding}" Style="{StaticResource FontStyle}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.Resources>
                                 </ComboBox>
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
