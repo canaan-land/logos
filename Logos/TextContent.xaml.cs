@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -11,18 +11,24 @@ namespace Logos
     /// </summary>
     public partial class TextContent : UserControl
     {
-        public static ObservableCollection<string> FontCollection => new ObservableCollection<string>
-            (from font in new InstalledFontCollection().Families select font.Name);
-
         public TextContent()
         {
             InitializeComponent();
+            var v = new InstalledFontCollection().Families.Select(font => font.Name);
         }
 
         private void FontSizeComboBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+    }
+
+    public class InstalledFonts : List<string>
+    {
+        public InstalledFonts()
+        {
+            AddRange(new InstalledFontCollection().Families.Select(font => font.Name));
         }
     }
 }

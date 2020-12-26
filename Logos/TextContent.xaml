@@ -21,9 +21,7 @@
                                           materialDesign:HintAssist.Hint="字型"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True"
-                                          Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0"
-                                          ItemTemplate="{DynamicResource FontTemplate}"
-                                          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontCollection}">
+                                          Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <VirtualizingStackPanel/>
@@ -39,7 +37,14 @@
                                                 <TextBlock Text="{Binding}" ToolTip="{Binding}" Style="{StaticResource FontStyle}" />
                                             </StackPanel>
                                         </DataTemplate>
+                                        <ObjectDataProvider x:Key="FontProvider" ObjectType="{x:Type local:InstalledFonts}"/>
                                     </ComboBox.Resources>
+                                    <ComboBox.ItemTemplate>
+                                        <Binding Source="{StaticResource FontTemplate}"/>
+                                    </ComboBox.ItemTemplate>
+                                    <ComboBox.ItemsSource>
+                                        <Binding Source="{StaticResource FontProvider}"/>
+                                    </ComboBox.ItemsSource>
                                 </ComboBox>
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
