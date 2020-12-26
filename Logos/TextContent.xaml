@@ -44,7 +44,7 @@
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
                                           materialDesign:HintAssist.Hint="大小" IsEditable="True" Margin="1,0,10,0"
-                                          Text="{Binding Path=TextFontSize, Mode=TwoWay}">
+                                          Text="{Binding Path=TextFontSize, Mode=TwoWay}" PreviewTextInput="FontSizeComboBox_PreviewTextInput">
                                     <ComboBoxItem>8</ComboBoxItem>
                                     <ComboBoxItem>9</ComboBoxItem>
                                     <ComboBoxItem>10</ComboBoxItem>
