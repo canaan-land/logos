@@ -38,8 +38,33 @@ namespace Logos
             }
         }
 
+        private readonly Parameters parameters = new Parameters();
         public string TextString { get; set; }
-        public string TextFont { get; set; } = "微軟正黑體";
+        public string TextFont
+        {
+            get => parameters.Font;
+            set => parameters.Font = value;
+        }
+        public string TextFontSize
+        {
+            get => parameters.FontSize;
+            set => parameters.FontSize = value;
+        }
+        public bool TextFontBold
+        {
+            get => parameters.FontBold;
+            set => parameters.FontBold = value;
+        }
+        public bool TextFontItalic
+        {
+            get => parameters.FontItalic;
+            set => parameters.FontItalic = value;
+        }
+        public bool TextFontUnderline
+        {
+            get => parameters.FontUnderline;
+            set => parameters.FontUnderline = value;
+        }
 
         public MainWindow()
         {
