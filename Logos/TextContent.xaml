@@ -16,7 +16,7 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel Orientation="Vertical">
                         <ToolBarTray>
-                            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                            <ToolBar ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
