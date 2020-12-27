@@ -16,7 +16,7 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel Orientation="Vertical">
                         <ToolBarTray>
-                            <ToolBar ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                            <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
@@ -46,9 +46,9 @@
                                         <Binding Source="{StaticResource FontProvider}"/>
                                     </ComboBox.ItemsSource>
                                 </ComboBox>
-                                <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="50"
+                                <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="80"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
-                                          materialDesign:HintAssist.Hint="大小" IsEditable="True" Margin="1,0,10,0"
+                                          materialDesign:HintAssist.Hint="字型大小" IsEditable="True" Margin="1,0,10,0"
                                           Text="{Binding Path=TextFontSize, Mode=TwoWay}" PreviewTextInput="FontSizeComboBox_PreviewTextInput">
                                     <ComboBoxItem>8</ComboBoxItem>
                                     <ComboBoxItem>9</ComboBoxItem>
@@ -69,16 +69,23 @@
                                 </ComboBox>
                                 <Separator/>
                                 <ListBox SelectionMode="Extended">
-                                    <ListBoxItem x:Name="BoldCheckbox" IsSelected="{Binding Path=TextFontBold, Mode=TwoWay}">
+                                    <ListBoxItem x:Name="BoldCheckbox" IsSelected="{Binding Path=TextFontBold, Mode=TwoWay}" ToolTip="粗體">
                                         <materialDesign:PackIcon Kind="FormatBold"/>
                                     </ListBoxItem>
-                                    <ListBoxItem x:Name="ItalicCheckbox" IsSelected="{Binding Path=TextFontItalic, Mode=TwoWay}">
+                                    <ListBoxItem x:Name="ItalicCheckbox" IsSelected="{Binding Path=TextFontItalic, Mode=TwoWay}" ToolTip="斜體">
                                         <materialDesign:PackIcon Kind="FormatItalic"/>
                                     </ListBoxItem>
-                                    <ListBoxItem x:Name="UnderlineCheckbox" IsSelected="{Binding Path=TextFontUnderline, Mode=TwoWay}">
+                                    <ListBoxItem x:Name="UnderlineCheckbox" IsSelected="{Binding Path=TextFontUnderline, Mode=TwoWay}" ToolTip="底線">
                                         <materialDesign:PackIcon Kind="FormatUnderline"/>
                                     </ListBoxItem>
                                 </ListBox>
+                            </ToolBar>
+                            <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                                <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
+                                          materialDesign:HintAssist.Hint="字型色彩"
+                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          HorizontalAlignment="Left" Margin="1,0,10,0">
+                                </ComboBox>
                             </ToolBar>
                         </ToolBarTray>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
