@@ -70,6 +70,16 @@ namespace Logos
             get => parameters.FontColor;
             set => parameters.FontColor = value;
         }
+        public bool Outline
+        {
+            get => parameters.Outline;
+            set => parameters.Outline = value;
+        }
+        public string OutlineColor
+        {
+            get => parameters.OutlineColor;
+            set => parameters.OutlineColor = value;
+        }
 
         public MainWindow()
         {
@@ -79,6 +89,8 @@ namespace Logos
             TextFontSize = "72";
             TextFontBold = TextFontItalic = TextFontUnderline = false;
             TextFontColor = GetColorName(Colors.Red);
+            Outline = true;
+            OutlineColor = GetColorName(Colors.White);
 
             MenuItemText.IsSelected = true;
         }
