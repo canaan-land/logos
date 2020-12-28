@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Drawing.Text;
+﻿using System.Drawing.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
@@ -21,14 +20,6 @@ namespace Logos
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-    }
-
-    public class InstalledFonts : List<string>
-    {
-        public InstalledFonts()
-        {
-            AddRange(new InstalledFontCollection().Families.Select(font => font.Name));
         }
     }
 }

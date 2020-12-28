@@ -37,7 +37,7 @@
                                                 <TextBlock Text="{Binding}" ToolTip="{Binding}" Style="{StaticResource FontStyle}" />
                                             </StackPanel>
                                         </DataTemplate>
-                                        <ObjectDataProvider x:Key="FontProvider" ObjectType="{x:Type local:InstalledFonts}"/>
+                                        <ObjectDataProvider x:Key="FontProvider" ObjectType="{x:Type local:InstalledFonts}" MethodName="GetList"/>
                                     </ComboBox.Resources>
                                     <ComboBox.ItemTemplate>
                                         <Binding Source="{StaticResource FontTemplate}"/>
