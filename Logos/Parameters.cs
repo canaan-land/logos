@@ -8,7 +8,7 @@ namespace Logos
         [JsonPropertyName("font")]
         public string Font { get; set; }
         [JsonPropertyName("fontSize")]
-        public string FontSize { get; set; }
+        public double FontSize { get; set; }
         [JsonPropertyName("fontBold")]
         public bool FontBold { get; set; }
         [JsonPropertyName("fontItalic")]

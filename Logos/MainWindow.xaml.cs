@@ -45,7 +45,7 @@ namespace Logos
             get => parameters.Font;
             set => parameters.Font = value;
         }
-        public string TextFontSize
+        public double TextFontSize
         {
             get => parameters.FontSize;
             set => parameters.FontSize = value;
@@ -70,12 +70,12 @@ namespace Logos
             get => parameters.FontColor;
             set => parameters.FontColor = value;
         }
-        public bool Outline
+        public bool TextOutline
         {
             get => parameters.Outline;
             set => parameters.Outline = value;
         }
-        public string OutlineColor
+        public string TextOutlineColor
         {
             get => parameters.OutlineColor;
             set => parameters.OutlineColor = value;
@@ -86,11 +86,11 @@ namespace Logos
             InitializeComponent();
 
             TextFont = "微軟正黑體";
-            TextFontSize = "72";
+            TextFontSize = 72;
             TextFontBold = TextFontItalic = TextFontUnderline = false;
             TextFontColor = GetColorName(Colors.Red);
-            Outline = true;
-            OutlineColor = GetColorName(Colors.White);
+            TextOutline = true;
+            TextOutlineColor = GetColorName(Colors.White);
 
             MenuItemText.IsSelected = true;
         }

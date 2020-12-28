@@ -110,14 +110,14 @@
                                 <Separator Margin="6,6,6,6"/>
                                 <CheckBox x:Name="OutlineCheckBox" Style="{StaticResource MaterialDesignCheckBox}"
                                           FontSize="15" FontFamily="微軟正黑體" Margin="0,0,10,0"
-                                          IsChecked="{Binding Path=Outline, Mode=TwoWay}">
+                                          IsChecked="{Binding Path=TextOutline, Mode=TwoWay}">
                                     邊框
                                 </CheckBox>
                                 <ComboBox x:Name="OutlineColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="100"
                                           materialDesign:HintAssist.Hint="邊框色彩"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" Margin="1,0,10,0"
-                                          Text="{Binding Path=OutlineColor, Mode=TwoWay}"
+                                          Text="{Binding Path=TextOutlineColor, Mode=TwoWay}"
                                           IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
