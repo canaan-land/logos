@@ -38,65 +38,11 @@ namespace Logos
             }
         }
 
-        private readonly Parameters parameters = new Parameters();
-        public string TextString { get; set; }
-        public string TextFont
-        {
-            get => parameters.Font;
-            set => parameters.Font = value;
-        }
-        public double TextFontSize
-        {
-            get => parameters.FontSize;
-            set => parameters.FontSize = value;
-        }
-        public bool TextFontBold
-        {
-            get => parameters.FontBold;
-            set => parameters.FontBold = value;
-        }
-        public bool TextFontItalic
-        {
-            get => parameters.FontItalic;
-            set => parameters.FontItalic = value;
-        }
-        public bool TextFontUnderline
-        {
-            get => parameters.FontUnderline;
-            set => parameters.FontUnderline = value;
-        }
-        public string TextFontColor
-        {
-            get => parameters.FontColor;
-            set => parameters.FontColor = value;
-        }
-        public bool TextOutline
-        {
-            get => parameters.Outline;
-            set => parameters.Outline = value;
-        }
-        public string TextOutlineColor
-        {
-            get => parameters.OutlineColor;
-            set => parameters.OutlineColor = value;
-        }
-        public decimal TextOutlineWidth
-        {
-            get => parameters.OutlineWidth;
-            set => parameters.OutlineWidth = value;
-        }
+        public readonly DisplayData displayData = new DisplayData();
 
         public MainWindow()
         {
             InitializeComponent();
-
-            TextFont = "微軟正黑體";
-            TextFontSize = 72;
-            TextFontBold = TextFontItalic = TextFontUnderline = false;
-            TextFontColor = GetColorName(Colors.Red);
-            TextOutline = true;
-            TextOutlineColor = GetColorName(Colors.White);
-            TextOutlineWidth = 2;
 
             MenuItemText.IsSelected = true;
         }
@@ -104,7 +50,21 @@ namespace Logos
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
         {
             ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(new TextContent() { DataContext = this });
+            TextContent textContent = new TextContent()
+            {
+                DataContext = this
+            };
+            textContent.StringTextBox.DataContext = displayData;
+            textContent.FontComboBox.DataContext = displayData;
+            textContent.FontSizeComboBox.DataContext = displayData;
+            textContent.BoldCheckbox.DataContext = displayData;
+            textContent.ItalicCheckbox.DataContext = displayData;
+            textContent.UnderlineCheckbox.DataContext = displayData;
+            textContent.FontColorComboBox.DataContext = displayData;
+            textContent.OutlineCheckBox.DataContext = displayData;
+            textContent.OutlineColorComboBox.DataContext = displayData;
+            textContent.OutlineWidthComboBox.DataContext = displayData;
+            ContentGrid.Children.Add(textContent);
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
@@ -138,12 +98,6 @@ namespace Logos
         private void MenuItem_MouseLeave(object sender, MouseEventArgs e)
         {
             (sender as ListViewItem).Background = null;
-        }
-
-        private static string GetColorName(Color color)
-        {
-            return typeof(Colors).GetProperties()
-                .FirstOrDefault(prop => color.Equals(prop.GetValue(null))).Name;
         }
     }
 }

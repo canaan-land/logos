@@ -8,6 +8,13 @@
         Title="DisplayWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <StackPanel>
-
+        <TextBlock x:Name="DisplayText" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding Path=TextString}"
+                   FontFamily="{Binding Path=TextFont}"
+                   FontSize="{Binding Path=TextFontSize}"
+                   FontWeight="{Binding Path=TextFontBold, Converter={local:BoolToBoldConverter}}"
+                   FontStyle="{Binding Path=TextFontItalic, Converter={local:BoolToItalicConverter}}"
+                   TextDecorations="{Binding Path=TextFontUnderline, Converter={local:BoolToUnderlineConverter}}"
+                   Foreground="{Binding Path=TextFontColor}"/>
     </StackPanel>
 </Window>

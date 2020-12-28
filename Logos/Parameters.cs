@@ -1,4 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 using System.Windows.Media;
 
 namespace Logos
@@ -31,5 +34,135 @@ namespace Logos
         public bool CECompare { get; set; }
         [JsonPropertyName("showVerse")]
         public bool ShowVerse { get; set; }
+    }
+
+    public class DisplayData : INotifyPropertyChanged
+    {
+        private string textString;
+        private readonly Parameters parameters = new Parameters();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public DisplayData()
+        {
+            TextFont = "微軟正黑體";
+            TextFontSize = 72;
+            TextFontBold = TextFontItalic = TextFontUnderline = false;
+            TextFontColor = GetColorName(Colors.Red);
+            TextOutline = true;
+            TextOutlineColor = GetColorName(Colors.White);
+            TextOutlineWidth = 2;
+        }
+
+        public string TextString
+        {
+            get => textString;
+            set
+            {
+                textString = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string TextFont
+        {
+            get => parameters.Font;
+            set
+            {
+                parameters.Font = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double TextFontSize
+        {
+            get => parameters.FontSize;
+            set
+            {
+                parameters.FontSize = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool TextFontBold
+        {
+            get => parameters.FontBold;
+            set
+            {
+                parameters.FontBold = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool TextFontItalic
+        {
+            get => parameters.FontItalic;
+            set
+            {
+                parameters.FontItalic = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool TextFontUnderline
+        {
+            get => parameters.FontUnderline;
+            set
+            {
+                parameters.FontUnderline = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string TextFontColor
+        {
+            get => parameters.FontColor;
+            set
+            {
+                parameters.FontColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool TextOutline
+        {
+            get => parameters.Outline;
+            set
+            {
+                parameters.Outline = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string TextOutlineColor
+        {
+            get => parameters.OutlineColor;
+            set
+            {
+                parameters.OutlineColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public decimal TextOutlineWidth
+        {
+            get => parameters.OutlineWidth;
+            set
+            {
+                parameters.OutlineWidth = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        private static string GetColorName(Color color)
+        {
+            return typeof(Colors).GetProperties()
+                .FirstOrDefault(prop => color.Equals(prop.GetValue(null))).Name;
+        }
     }
 }

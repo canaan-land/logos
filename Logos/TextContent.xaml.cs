@@ -25,7 +25,13 @@ namespace Logos
             {
                 DataContext = DataContext
             };
+            displayWindow.DisplayText.DataContext = (DataContext as MainWindow).displayData;
             displayWindow.Show();
+        }
+
+        private void TextContent_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            StringTextBox.Focus();
         }
     }
 }
