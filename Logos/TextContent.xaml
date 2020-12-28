@@ -176,7 +176,7 @@
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TextString, Mode=TwoWay}" DockPanel.Dock="Left" Margin="0,0,10,0"/>
                             <Button x:Name="SendButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand"
-                                    VerticalAlignment="Bottom">
+                                    VerticalAlignment="Bottom" Click="SendButton_Click">
                                 <materialDesign:PackIcon Kind="Send"/>
                             </Button>
                         </StackPanel>                        

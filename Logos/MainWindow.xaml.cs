@@ -140,7 +140,7 @@ namespace Logos
             (sender as ListViewItem).Background = null;
         }
 
-        private string GetColorName(Color color)
+        private static string GetColorName(Color color)
         {
             return typeof(Colors).GetProperties()
                 .FirstOrDefault(prop => color.Equals(prop.GetValue(null))).Name;

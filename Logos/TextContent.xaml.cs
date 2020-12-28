@@ -18,5 +18,14 @@ namespace Logos
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void SendButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            DisplayWindow displayWindow = new DisplayWindow()
+            {
+                DataContext = DataContext
+            };
+            displayWindow.Show();
+        }
     }
 }
