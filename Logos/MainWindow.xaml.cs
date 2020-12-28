@@ -80,6 +80,11 @@ namespace Logos
             get => parameters.OutlineColor;
             set => parameters.OutlineColor = value;
         }
+        public decimal TextOutlineWidth
+        {
+            get => parameters.OutlineWidth;
+            set => parameters.OutlineWidth = value;
+        }
 
         public MainWindow()
         {
@@ -91,6 +96,7 @@ namespace Logos
             TextFontColor = GetColorName(Colors.Red);
             TextOutline = true;
             TextOutlineColor = GetColorName(Colors.White);
+            TextOutlineWidth = 2;
 
             MenuItemText.IsSelected = true;
         }
