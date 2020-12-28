@@ -65,6 +65,11 @@ namespace Logos
             get => parameters.FontUnderline;
             set => parameters.FontUnderline = value;
         }
+        public string TextFontColor
+        {
+            get => parameters.FontColor;
+            set => parameters.FontColor = value;
+        }
 
         public MainWindow()
         {

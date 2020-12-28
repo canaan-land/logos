@@ -1,6 +1,4 @@
-﻿using System.Drawing.Text;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
 namespace Logos
@@ -13,7 +11,6 @@ namespace Logos
         public TextContent()
         {
             InitializeComponent();
-            var v = new InstalledFontCollection().Families.Select(font => font.Name);
         }
 
         private void FontSizeComboBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)

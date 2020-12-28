@@ -81,10 +81,30 @@
                                 </ListBox>
                             </ToolBar>
                             <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
-                                <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
+                                <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="100"
                                           materialDesign:HintAssist.Hint="字型色彩"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" Margin="1,0,10,0">
+                                    <ComboBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ComboBox.ItemsPanel>
+                                    <ComboBox.Resources>
+                                        <ObjectDataProvider x:Key="ColorProvider" ObjectType="{x:Type local:ColorHelper}" MethodName="GetList"/>
+                                    </ComboBox.Resources>
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Rectangle Height="20" Width="20" Margin="0,0,10,0"
+                                                        Fill="{Binding Converter={local:StringToSolidColorBrushPair}}"/>
+                                                <TextBlock Text="{Binding}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                    <ComboBox.ItemsSource>
+                                        <Binding Source="{StaticResource ColorProvider}"/>
+                                    </ComboBox.ItemsSource>
                                 </ComboBox>
                             </ToolBar>
                         </ToolBarTray>
