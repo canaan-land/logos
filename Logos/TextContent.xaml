@@ -84,7 +84,8 @@
                                 <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="100"
                                           materialDesign:HintAssist.Hint="字型色彩"
                                           Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
-                                          HorizontalAlignment="Left" Margin="1,0,10,0">
+                                          HorizontalAlignment="Left" Margin="1,0,10,0"
+                                          Text="{Binding Path=TextFontColor, Mode=TwoWay}">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <VirtualizingStackPanel/>

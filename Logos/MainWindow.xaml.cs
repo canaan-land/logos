@@ -75,6 +75,11 @@ namespace Logos
         {
             InitializeComponent();
 
+            TextFont = "微軟正黑體";
+            TextFontSize = "72";
+            TextFontBold = TextFontItalic = TextFontUnderline = false;
+            TextFontColor = GetColorName(Colors.Red);
+
             MenuItemText.IsSelected = true;
         }
 
@@ -115,6 +120,12 @@ namespace Logos
         private void MenuItem_MouseLeave(object sender, MouseEventArgs e)
         {
             (sender as ListViewItem).Background = null;
+        }
+
+        private string GetColorName(Color color)
+        {
+            return typeof(Colors).GetProperties()
+                .FirstOrDefault(prop => color.Equals(prop.GetValue(null))).Name;
         }
     }
 }
