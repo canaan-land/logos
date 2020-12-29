@@ -47,7 +47,8 @@ namespace Logos
         {
             TextFont = "微軟正黑體";
             TextFontSize = 72;
-            TextFontBold = TextFontItalic = TextFontUnderline = false;
+            TextFontBold = true;
+            TextFontItalic = TextFontUnderline = false;
             TextFontColor = GetColorName(Colors.Red);
             TextOutline = true;
             TextOutlineColor = GetColorName(Colors.White);
