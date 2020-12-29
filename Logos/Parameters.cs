@@ -54,6 +54,9 @@ namespace Logos
             TextOutline = true;
             TextOutlineColor = GetColorName(Colors.White);
             TextOutlineWidth = 5;
+            AutoDetect = true;
+            CECompare = true;
+            ShowVerse = false;
         }
 
         public string TextString
@@ -162,6 +165,36 @@ namespace Logos
             set
             {
                 parameters.OutlineWidth = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool AutoDetect
+        {
+            get => parameters.AutoDetect;
+            set
+            {
+                parameters.AutoDetect = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool CECompare
+        {
+            get => parameters.CECompare;
+            set
+            {
+                parameters.CECompare = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool ShowVerse
+        {
+            get => parameters.ShowVerse;
+            set
+            {
+                parameters.ShowVerse = value;
                 OnPropertyChanged();
             }
         }

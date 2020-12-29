@@ -181,7 +181,34 @@
                                           Checked="DisplayButton_Checked" Unchecked="DisplayButton_Unchecked">
                                 <materialDesign:PackIcon Kind="Eye"/>
                             </ToggleButton>
-                        </StackPanel>                        
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <ToggleButton x:Name="AutoDetectToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="5,0,5,0"
+                                          VerticalAlignment="Center" IsChecked="{Binding Path=AutoDetect}">
+                                <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                    <SolidColorBrush Color="DarkGray"/>
+                                </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            </ToggleButton>
+                            <TextBlock Text="自動偵測剪貼簿中的聖經章節" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <ToggleButton x:Name="CECompareToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="5,0,5,0"
+                                          VerticalAlignment="Center" IsChecked="{Binding Path=CECompare}">
+                                <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                    <SolidColorBrush Color="DarkGray"/>
+                                </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            </ToggleButton>
+                            <TextBlock Text="聖經卷名中英對照" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <ToggleButton x:Name="ShowVerseToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="5,0,5,0"
+                                          VerticalAlignment="Center" IsChecked="{Binding Path=ShowVerse}">
+                                <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                    <SolidColorBrush Color="DarkGray"/>
+                                </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            </ToggleButton>
+                            <TextBlock Text="顯示聖經節數" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
