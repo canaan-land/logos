@@ -99,5 +99,24 @@ namespace Logos
         {
             (sender as ListViewItem).Background = null;
         }
+
+        public bool IsTextDisplay { get; set; }
+        private DisplayWindow displayWindow;
+        public void PerformTextDisplay()
+        {
+            if (IsTextDisplay)
+            {
+                displayWindow = new DisplayWindow()
+                {
+                    DataContext = this
+                };
+                displayWindow.DisplayText.DataContext = displayData;
+                displayWindow.Show();
+            }
+            else
+            {
+                displayWindow.Close();
+            }
+        }
     }
 }

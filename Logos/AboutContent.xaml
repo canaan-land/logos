@@ -38,21 +38,21 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
-                        
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="名稱" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=ProductName}" Style="{DynamicResource ValueTextFont}"/>
-                        
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="版本" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductVersion}" Style="{DynamicResource ValueTextFont}"/>
-                        
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{DynamicResource ValueTextFont}"/>
-                        
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="圖標設計" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="David" Style="{DynamicResource ValueTextFont}"/>
-                        
-                        <TextBlock Grid.Row="4" Grid.Column="0" Text="版權所有" Style="{DynamicResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020 迦南地" Style="{DynamicResource ValueTextFont}"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="名稱" Style="{StaticResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=ProductName}" Style="{StaticResource ValueTextFont}"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="版本" Style="{StaticResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductVersion}" Style="{StaticResource ValueTextFont}"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{StaticResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{StaticResource ValueTextFont}"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="圖標設計" Style="{StaticResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="David" Style="{StaticResource ValueTextFont}"/>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="版權所有" Style="{StaticResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020 迦南地" Style="{StaticResource ValueTextFont}"/>
                     </Grid>
                 </ScrollViewer>
             </StackPanel>

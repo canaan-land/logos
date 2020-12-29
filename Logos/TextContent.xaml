@@ -16,10 +16,10 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel Orientation="Vertical">
                         <ToolBarTray>
-                            <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                            <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
-                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True"
                                           Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0">
                                     <ComboBox.ItemsPanel>
@@ -47,7 +47,7 @@
                                     </ComboBox.ItemsSource>
                                 </ComboBox>
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="80"
-                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           materialDesign:HintAssist.Hint="字型大小" IsEditable="True" Margin="1,0,10,0"
                                           Text="{Binding Path=TextFontSize, Mode=TwoWay}" PreviewTextInput="FontSizeComboBox_PreviewTextInput">
                                     <ComboBoxItem>8</ComboBoxItem>
@@ -80,10 +80,10 @@
                                     </ListBoxItem>
                                 </ListBox>
                             </ToolBar>
-                            <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                            <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False">
                                 <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="120"
                                           materialDesign:HintAssist.Hint="字型色彩"
-                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" Margin="1,0,10,0"
                                           Text="{Binding Path=TextFontColor, Mode=TwoWay}">
                                     <ComboBox.ItemsPanel>
@@ -115,7 +115,7 @@
                                 </CheckBox>
                                 <ComboBox x:Name="OutlineColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="120"
                                           materialDesign:HintAssist.Hint="邊框色彩"
-                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" Margin="1,0,10,0"
                                           Text="{Binding Path=TextOutlineColor, Mode=TwoWay}"
                                           IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}">
@@ -141,7 +141,7 @@
                                     </ComboBox.ItemsSource>
                                 </ComboBox>
                                 <ComboBox x:Name="OutlineWidthComboBox" FontSize="15" FontFamily="微軟正黑體" Width="80"
-                                          Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           materialDesign:HintAssist.Hint="邊框寬度" IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}"
                                           Text="{Binding Path=TextOutlineWidth, Mode=TwoWay}">
                                     <ComboBoxItem>1</ComboBoxItem>
@@ -168,17 +168,18 @@
                             </ToolBar>
                         </ToolBarTray>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                            <TextBox x:Name="StringTextBox" FontSize="25" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                            <TextBox x:Name="StringTextBox" FontSize="25" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      FontFamily="{Binding ElementName=FontComboBox, Path=Text, Converter={local:StringToFontFamilyConverter}, Mode=OneWay}"
                                      FontWeight="{Binding ElementName=BoldCheckbox, Path=IsSelected, Converter={local:BoolToBoldConverter}, Mode=OneWay}"
                                      FontStyle="{Binding ElementName=ItalicCheckbox, Path=IsSelected, Converter={local:BoolToItalicConverter}, Mode=OneWay}"
                                      TextDecorations="{Binding ElementName=UnderlineCheckbox, Path=IsSelected, Converter={local:BoolToUnderlineConverter}, Mode=OneWay}"
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0"/>
-                            <Button x:Name="SendButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand"
-                                    VerticalAlignment="Bottom" Click="SendButton_Click">
-                                <materialDesign:PackIcon Kind="Send"/>
-                            </Button>
+                            <ToggleButton x:Name="DisplayButton"  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                          VerticalAlignment="Bottom" Click="DisplayButton_Click" ToolTip="顯示/隱藏"
+                                          IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}">
+                                <materialDesign:PackIcon Kind="Eye"/>
+                            </ToggleButton>
                         </StackPanel>                        
                     </StackPanel>
                 </ScrollViewer>

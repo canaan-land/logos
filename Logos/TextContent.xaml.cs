@@ -19,14 +19,9 @@ namespace Logos
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void SendButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void DisplayButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            DisplayWindow displayWindow = new DisplayWindow()
-            {
-                DataContext = DataContext
-            };
-            displayWindow.DisplayText.DataContext = (DataContext as MainWindow).displayData;
-            displayWindow.Show();
+            (DataContext as MainWindow).PerformTextDisplay();
         }
 
         private void TextContent_Loaded(object sender, System.Windows.RoutedEventArgs e)
