@@ -56,7 +56,7 @@
                     <TextBlock Text="{Binding Path=ProductName}"
                                FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Consolas"/>
                 </StackPanel>
-                <ListView ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" x:Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top">
+                <ListView ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" x:Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top" Background="{x:Null}">
                     <ListViewItem x:Name="MenuItemText" Padding="1" Selected="MenuItemText_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
