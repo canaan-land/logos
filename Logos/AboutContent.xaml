@@ -29,7 +29,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"/>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="300"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
@@ -48,11 +48,11 @@
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{StaticResource KeyTextFont}"/>
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{StaticResource ValueTextFont}"/>
 
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="圖標設計" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="David" Style="{StaticResource ValueTextFont}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="公司" Style="{StaticResource KeyTextFont}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="迦南地" Style="{StaticResource ValueTextFont}"/>
 
                         <TextBlock Grid.Row="4" Grid.Column="0" Text="版權所有" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020 迦南地" Style="{StaticResource ValueTextFont}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020-2021 GPS刻影工作室" Style="{StaticResource ValueTextFont}"/>
                     </Grid>
                 </ScrollViewer>
             </StackPanel>
