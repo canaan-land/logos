@@ -179,7 +179,7 @@
                                           VerticalAlignment="Bottom" ToolTip="顯示/隱藏"
                                           IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}"
                                           Checked="DisplayButton_Checked" Unchecked="DisplayButton_Unchecked">
-                                <materialDesign:PackIcon Kind="Eye"/>
+                                <materialDesign:PackIcon Kind="MonitorStar" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </ToggleButton>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
