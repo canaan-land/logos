@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using NHotkey;
+using NHotkey.Wpf;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -110,15 +112,22 @@ namespace Logos
             };
             displayWindow.DisplayText.DataContext = displayData;
             displayWindow.Show();
+            HotkeyManager.Current.AddOrReplace("Escape", Key.Escape, ModifierKeys.None, OnEscape);
         }
 
         public void Undisplay()
         {
+            HotkeyManager.Current.Remove("Escape");
             if (displayWindow != null)
             {
                 displayWindow.Close();
                 displayWindow = null;
             }
+        }
+
+        private void OnEscape(object sender, HotkeyEventArgs e)
+        {
+            displayData.IsTextDisplay = false;
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
