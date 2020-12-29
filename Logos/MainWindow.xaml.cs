@@ -42,20 +42,15 @@ namespace Logos
 
         public readonly DisplayData displayData = new DisplayData();
 
+        private readonly TextContent textContent;
+        private readonly DrawContent drawContent;
+        private readonly AboutContent aboutContent;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            MenuItemText.IsSelected = true;
-        }
-
-        private void MenuItemText_Selected(object sender, RoutedEventArgs e)
-        {
-            ContentGrid.Children.Clear();
-            TextContent textContent = new TextContent()
-            {
-                DataContext = this
-            };
+            textContent = new TextContent() { DataContext = this };
             textContent.StringTextBox.DataContext = displayData;
             textContent.DisplayButton.DataContext = displayData;
             textContent.FontComboBox.DataContext = displayData;
@@ -67,19 +62,28 @@ namespace Logos
             textContent.OutlineCheckBox.DataContext = displayData;
             textContent.OutlineColorComboBox.DataContext = displayData;
             textContent.OutlineWidthComboBox.DataContext = displayData;
+            drawContent = new DrawContent() { DataContext = this };
+            aboutContent = new AboutContent() { DataContext = this };
+
+            MenuItemText.IsSelected = true;
+        }
+
+        private void MenuItemText_Selected(object sender, RoutedEventArgs e)
+        {
+            ContentGrid.Children.Clear();
             ContentGrid.Children.Add(textContent);
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
         {
             ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(new DrawContent() { DataContext = this });
+            ContentGrid.Children.Add(drawContent);
         }
 
         private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
         {
             ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(new AboutContent() { DataContext = this });
+            ContentGrid.Children.Add(aboutContent);
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
