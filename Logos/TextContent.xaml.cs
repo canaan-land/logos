@@ -1,7 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace Logos
@@ -22,9 +21,14 @@ namespace Logos
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void DisplayButton_Click(object sender, RoutedEventArgs e)
+        private void DisplayButton_Checked(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWindow).PerformTextDisplay();
+            (DataContext as MainWindow).Display();
+        }
+
+        private void DisplayButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainWindow).Undisplay();
         }
 
         private void TextContent_Loaded(object sender, RoutedEventArgs e)
@@ -36,10 +40,9 @@ namespace Logos
         {
             if (e.Key == Key.Enter)
             {
-                if (DisplayButton.IsChecked.HasValue && !DisplayButton.IsChecked.Value)
+                if (!(DataContext as MainWindow).displayData.IsTextDisplay)
                 {
                     DisplayButton.IsChecked = true;
-                    DisplayButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
                 }
             }
         }

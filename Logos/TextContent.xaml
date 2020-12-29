@@ -176,8 +176,9 @@
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
                             <ToggleButton x:Name="DisplayButton" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          VerticalAlignment="Bottom" Click="DisplayButton_Click" ToolTip="顯示/隱藏"
-                                          IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}">
+                                          VerticalAlignment="Bottom" ToolTip="顯示/隱藏"
+                                          IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}"
+                                          Checked="DisplayButton_Checked" Unchecked="DisplayButton_Unchecked">
                                 <materialDesign:PackIcon Kind="Eye"/>
                             </ToggleButton>
                         </StackPanel>                        

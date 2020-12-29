@@ -55,6 +55,7 @@ namespace Logos
                 DataContext = this
             };
             textContent.StringTextBox.DataContext = displayData;
+            textContent.DisplayButton.DataContext = displayData;
             textContent.FontComboBox.DataContext = displayData;
             textContent.FontSizeComboBox.DataContext = displayData;
             textContent.BoldCheckbox.DataContext = displayData;
@@ -100,28 +101,29 @@ namespace Logos
             (sender as ListViewItem).Background = null;
         }
 
-        public bool IsTextDisplay { get; set; }
         private DisplayWindow displayWindow;
-        public void PerformTextDisplay()
+        public void Display()
         {
-            if (IsTextDisplay)
+            displayWindow = new DisplayWindow()
             {
-                displayWindow = new DisplayWindow()
-                {
-                    DataContext = this
-                };
-                displayWindow.DisplayText.DataContext = displayData;
-                displayWindow.Show();
-            }
-            else
+                DataContext = this
+            };
+            displayWindow.DisplayText.DataContext = displayData;
+            displayWindow.Show();
+        }
+
+        public void Undisplay()
+        {
+            if (displayWindow != null)
             {
                 displayWindow.Close();
+                displayWindow = null;
             }
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (IsTextDisplay)
+            if (displayData.IsTextDisplay)
             {
                 displayWindow.Close();
             }

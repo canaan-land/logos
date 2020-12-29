@@ -39,6 +39,7 @@ namespace Logos
     public class DisplayData : INotifyPropertyChanged
     {
         private string textString;
+        private bool isTextDisplay;
         private readonly Parameters parameters = new Parameters();
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -61,6 +62,16 @@ namespace Logos
             set
             {
                 textString = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsTextDisplay
+        {
+            get => isTextDisplay;
+            set
+            {
+                isTextDisplay = value;
                 OnPropertyChanged();
             }
         }
