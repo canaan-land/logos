@@ -8,13 +8,27 @@
         Title="DisplayWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" ShowInTaskbar="False">
     <StackPanel>
-        <TextBlock x:Name="DisplayText" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <local:OutlinedTextBlock x:Name="DisplayText" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Text="{Binding Path=TextString}"
                    FontFamily="{Binding Path=TextFont}"
                    FontSize="{Binding Path=TextFontSize}"
                    FontWeight="{Binding Path=TextFontBold, Converter={local:BoolToBoldConverter}}"
                    FontStyle="{Binding Path=TextFontItalic, Converter={local:BoolToItalicConverter}}"
                    TextDecorations="{Binding Path=TextFontUnderline, Converter={local:BoolToUnderlineConverter}}"
-                   Foreground="{Binding Path=TextFontColor}"/>
+                   Fill="{Binding Path=TextFontColor}">
+            <local:OutlinedTextBlock.Style>
+                <Style TargetType="local:OutlinedTextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=TextOutline}" Value="True">
+                            <Setter Property="Stroke" Value="{Binding Path=TextOutlineColor}"/>
+                            <Setter Property="StrokeThickness" Value="{Binding Path=TextOutlineWidth}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=TextOutline}" Value="False">
+                            <Setter Property="StrokeThickness" Value="0"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </local:OutlinedTextBlock.Style>
+        </local:OutlinedTextBlock>
     </StackPanel>
 </Window>

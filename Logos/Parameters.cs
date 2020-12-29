@@ -51,7 +51,7 @@ namespace Logos
             TextFontColor = GetColorName(Colors.Red);
             TextOutline = true;
             TextOutlineColor = GetColorName(Colors.White);
-            TextOutlineWidth = 2;
+            TextOutlineWidth = 5;
         }
 
         public string TextString
