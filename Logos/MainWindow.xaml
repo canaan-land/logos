@@ -82,11 +82,6 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <Grid DockPanel.Dock="Bottom" Height="300" VerticalAlignment="Bottom">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="Resources/GPS.png" Stretch="Uniform"/>
-                    </Grid.Background>
-                </Grid>
             </DockPanel>
         </Grid>
 

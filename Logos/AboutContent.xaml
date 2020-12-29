@@ -26,34 +26,41 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
-                            <ColumnDefinition Width="300"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="名稱" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=ProductName}" Style="{StaticResource ValueTextFont}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="名稱" Style="{StaticResource KeyTextFont}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=ProductName}" Style="{StaticResource ValueTextFont}"/>
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="版本" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductVersion}" Style="{StaticResource ValueTextFont}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="版本" Style="{StaticResource KeyTextFont}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductVersion}" Style="{StaticResource ValueTextFont}"/>
 
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{StaticResource ValueTextFont}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{StaticResource KeyTextFont}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{StaticResource ValueTextFont}"/>
 
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="公司" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="迦南地" Style="{StaticResource ValueTextFont}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="公司" Style="{StaticResource KeyTextFont}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="迦南地" Style="{StaticResource ValueTextFont}"/>
 
-                        <TextBlock Grid.Row="4" Grid.Column="0" Text="版權所有" Style="{StaticResource KeyTextFont}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020-2021 GPS刻影工作室" Style="{StaticResource ValueTextFont}"/>
-                    </Grid>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="版權所有" Style="{StaticResource KeyTextFont}"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="© 2020-2021 GPS刻影工作室" Style="{StaticResource ValueTextFont}"/>
+                        </Grid>
+                        <Grid Width="300" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,0">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="Resources/GPS.png" Stretch="Uniform"/>
+                            </Grid.Background>
+                        </Grid>
+                    </StackPanel>
                 </ScrollViewer>
             </StackPanel>
         </DockPanel>
