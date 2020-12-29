@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Logos"
         mc:Ignorable="d"
         Title="DisplayWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
     <StackPanel>
         <TextBlock x:Name="DisplayText" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Text="{Binding Path=TextString}"
