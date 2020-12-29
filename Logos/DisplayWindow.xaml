@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="DisplayWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" ShowInTaskbar="False">
-    <StackPanel>
+    <Canvas>
         <local:OutlinedTextBlock x:Name="DisplayText" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Text="{Binding Path=TextString}"
                    FontFamily="{Binding Path=TextFont}"
@@ -15,7 +15,7 @@
                    FontWeight="{Binding Path=TextFontBold, Converter={local:BoolToBoldConverter}}"
                    FontStyle="{Binding Path=TextFontItalic, Converter={local:BoolToItalicConverter}}"
                    TextDecorations="{Binding Path=TextFontUnderline, Converter={local:BoolToUnderlineConverter}}"
-                   Fill="{Binding Path=TextFontColor}" Cursor="SizeAll">
+                   Fill="{Binding Path=TextFontColor}" Cursor="SizeAll" MouseLeftButtonDown="DisplayText_MouseLeftButtonDown" MouseLeftButtonUp="DisplayText_MouseLeftButtonUp" MouseMove="DisplayText_MouseMove">
             <local:OutlinedTextBlock.Style>
                 <Style TargetType="local:OutlinedTextBlock">
                     <Style.Triggers>
@@ -30,5 +30,5 @@
                 </Style>
             </local:OutlinedTextBlock.Style>
         </local:OutlinedTextBlock>
-    </StackPanel>
+    </Canvas>
 </Window>
