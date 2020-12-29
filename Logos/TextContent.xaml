@@ -14,7 +14,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel x:Name="SubPanel" Orientation="Vertical">
                         <ToolBarTray>
                             <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"

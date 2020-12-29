@@ -51,17 +51,7 @@ namespace Logos
             InitializeComponent();
 
             textContent = new TextContent() { DataContext = this };
-            textContent.StringTextBox.DataContext = displayData;
-            textContent.DisplayButton.DataContext = displayData;
-            textContent.FontComboBox.DataContext = displayData;
-            textContent.FontSizeComboBox.DataContext = displayData;
-            textContent.BoldCheckbox.DataContext = displayData;
-            textContent.ItalicCheckbox.DataContext = displayData;
-            textContent.UnderlineCheckbox.DataContext = displayData;
-            textContent.FontColorComboBox.DataContext = displayData;
-            textContent.OutlineCheckBox.DataContext = displayData;
-            textContent.OutlineColorComboBox.DataContext = displayData;
-            textContent.OutlineWidthComboBox.DataContext = displayData;
+            textContent.SubPanel.DataContext = displayData;
             drawContent = new DrawContent() { DataContext = this };
             aboutContent = new AboutContent() { DataContext = this };
 
