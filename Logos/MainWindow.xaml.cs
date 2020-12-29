@@ -118,5 +118,13 @@ namespace Logos
                 displayWindow.Close();
             }
         }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (IsTextDisplay)
+            {
+                displayWindow.Close();
+            }
+        }
     }
 }

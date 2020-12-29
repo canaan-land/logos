@@ -11,7 +11,7 @@
         ExtendViewIntoTitleBar="True"
         WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="494" AllowsTransparency="False" WindowStyle="None"
         DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}"
-        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf" Closing="MainWindow_Closing">
     <fw:AcrylicWindow.Resources>
         <Style x:Key="ListViewItemContainerStyle" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="Transparent"/>
