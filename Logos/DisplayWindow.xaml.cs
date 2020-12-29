@@ -12,11 +12,13 @@ namespace Logos
         public DisplayWindow()
         {
             InitializeComponent();
+
+            DisplayText.RenderTransform = new TranslateTransform(prevX, prevY);
         }
 
         private bool isDragging;
         private Point clickPosition;
-        private double prevX, prevY;
+        private static double prevX, prevY;
 
         private void DisplayText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -31,11 +33,8 @@ namespace Logos
             isDragging = false;
             var control = sender as OutlinedTextBlock;
             var transform = (control.RenderTransform as TranslateTransform);
-            if (transform != null)
-            {
-                prevX = transform.X;
-                prevY = transform.Y;
-            }
+            prevX = transform.X;
+            prevY = transform.Y;
             control.ReleaseMouseCapture();
         }
 
@@ -45,12 +44,7 @@ namespace Logos
             {
                 Point currentPosition = e.GetPosition(Parent as UIElement);
 
-                if (control.RenderTransform is not TranslateTransform transform)
-                {
-                    transform = new TranslateTransform();
-                    control.RenderTransform = transform;
-                }
-
+                var transform = (control.RenderTransform as TranslateTransform);
                 transform.X = currentPosition.X - clickPosition.X + prevX;
                 transform.Y = currentPosition.Y - clickPosition.Y + prevY;
             }
