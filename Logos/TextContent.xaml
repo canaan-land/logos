@@ -174,8 +174,8 @@
                                      FontStyle="{Binding ElementName=ItalicCheckbox, Path=IsSelected, Converter={local:BoolToItalicConverter}, Mode=OneWay}"
                                      TextDecorations="{Binding ElementName=UnderlineCheckbox, Path=IsSelected, Converter={local:BoolToUnderlineConverter}, Mode=OneWay}"
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
-                                     Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0"/>
-                            <ToggleButton x:Name="DisplayButton"  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                     Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
+                            <ToggleButton x:Name="DisplayButton" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           VerticalAlignment="Bottom" Click="DisplayButton_Click" ToolTip="顯示/隱藏"
                                           IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}">
                                 <materialDesign:PackIcon Kind="Eye"/>
