@@ -167,7 +167,7 @@
                                 </ComboBox>
                             </ToolBar>
                         </ToolBarTray>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                             <TextBox x:Name="StringTextBox" FontSize="25" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      FontFamily="{Binding ElementName=FontComboBox, Path=Text, Converter={local:StringToFontFamilyConverter}, Mode=OneWay}"
                                      FontWeight="{Binding ElementName=BoldCheckbox, Path=IsSelected, Converter={local:BoolToBoldConverter}, Mode=OneWay}"
@@ -182,32 +182,74 @@
                                 <materialDesign:PackIcon Kind="MonitorStar" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </ToggleButton>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <ToggleButton x:Name="AutoDetectToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="5,0,5,0"
+                        <TextBlock Text="自動偵測剪貼簿中的聖經章節" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center" Margin="0,0,0,10"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <ToggleButton x:Name="AutoDetectToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="0,0,5,0"
                                           VerticalAlignment="Center" IsChecked="{Binding Path=AutoDetect}">
                                 <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
                                     <SolidColorBrush Color="DarkGray"/>
                                 </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
                             </ToggleButton>
-                            <TextBlock Text="自動偵測剪貼簿中的聖經章節" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=AutoDetectToggle, Path=IsChecked}" Value="True">
+                                                <Setter Property="Text" Value="開啟"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=AutoDetectToggle, Path=IsChecked}" Value="False">
+                                                <Setter Property="Text" Value="關閉"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <ToggleButton x:Name="CECompareToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="5,0,5,0"
+                        <TextBlock Text="聖經卷名中英對照" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center" Margin="0,0,0,10"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <ToggleButton x:Name="CECompareToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="0,0,5,0"
                                           VerticalAlignment="Center" IsChecked="{Binding Path=CECompare}">
                                 <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
                                     <SolidColorBrush Color="DarkGray"/>
                                 </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
                             </ToggleButton>
-                            <TextBlock Text="聖經卷名中英對照" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=CECompareToggle, Path=IsChecked}" Value="True">
+                                                <Setter Property="Text" Value="開啟"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=CECompareToggle, Path=IsChecked}" Value="False">
+                                                <Setter Property="Text" Value="關閉"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </StackPanel>
+                        <TextBlock Text="顯示聖經節數" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center" Margin="0,0,0,10"/>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <ToggleButton x:Name="ShowVerseToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="5,0,5,0"
+                            <ToggleButton x:Name="ShowVerseToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" Margin="0,0,5,0"
                                           VerticalAlignment="Center" IsChecked="{Binding Path=ShowVerse}">
                                 <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
                                     <SolidColorBrush Color="DarkGray"/>
                                 </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
                             </ToggleButton>
-                            <TextBlock Text="顯示聖經節數" FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" FontFamily="微軟正黑體" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=ShowVerseToggle, Path=IsChecked}" Value="True">
+                                                <Setter Property="Text" Value="開啟"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=ShowVerseToggle, Path=IsChecked}" Value="False">
+                                                <Setter Property="Text" Value="關閉"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
