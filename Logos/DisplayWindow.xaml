@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="DisplayWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" ShowInTaskbar="False">
-    <Canvas>
-        <local:OutlinedTextBlock x:Name="DisplayText" HorizontalAlignment="Center" VerticalAlignment="Center"
+    <Canvas HorizontalAlignment="Center" VerticalAlignment="Top" >
+        <local:OutlinedTextBlock x:Name="DisplayText"
                    Text="{Binding Path=TextString}"
                    FontFamily="{Binding Path=TextFont}"
                    FontSize="{Binding Path=TextFontSize}"
