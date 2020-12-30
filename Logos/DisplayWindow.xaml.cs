@@ -17,22 +17,22 @@ namespace Logos
         }
 
         private bool isDragging;
-        private Point clickPosition;
+        private Point savedPosition;
         private static double prevX, prevY;
 
         private void DisplayText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             isDragging = true;
-            var control = sender as OutlinedTextBlock;
-            clickPosition = e.GetPosition(this);
+            var control = sender as UIElement;
+            savedPosition = e.GetPosition(Parent as UIElement);
             control.CaptureMouse();
         }
 
         private void DisplayText_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             isDragging = false;
-            var control = sender as OutlinedTextBlock;
-            var transform = (control.RenderTransform as TranslateTransform);
+            var control = sender as UIElement;
+            var transform = control.RenderTransform as TranslateTransform;
             prevX = transform.X;
             prevY = transform.Y;
             control.ReleaseMouseCapture();
@@ -40,13 +40,14 @@ namespace Logos
 
         private void DisplayText_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging && sender is OutlinedTextBlock control)
+            if (isDragging)
             {
                 Point currentPosition = e.GetPosition(Parent as UIElement);
-
-                var transform = (control.RenderTransform as TranslateTransform);
-                transform.X = currentPosition.X - clickPosition.X + prevX;
-                transform.Y = currentPosition.Y - clickPosition.Y + prevY;
+                var control = sender as UIElement;
+                var transform = control.RenderTransform as TranslateTransform;
+                transform.X += currentPosition.X - savedPosition.X;
+                transform.Y += currentPosition.Y - savedPosition.Y;
+                savedPosition = currentPosition;
             }
         }
     }
