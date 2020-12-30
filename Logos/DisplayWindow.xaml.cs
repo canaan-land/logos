@@ -16,13 +16,11 @@ namespace Logos
             DisplayText.RenderTransform = new TranslateTransform(prevX, prevY);
         }
 
-        private bool isDragging;
-        private Point savedPosition;
+        private Point? savedPosition;
         private static double prevX, prevY;
 
         private void DisplayText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            isDragging = true;
             var control = sender as UIElement;
             savedPosition = e.GetPosition(Parent as UIElement);
             control.CaptureMouse();
@@ -30,7 +28,7 @@ namespace Logos
 
         private void DisplayText_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            isDragging = false;
+            savedPosition = null;
             var control = sender as UIElement;
             var transform = control.RenderTransform as TranslateTransform;
             prevX = transform.X;
@@ -40,13 +38,13 @@ namespace Logos
 
         private void DisplayText_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging)
+            if (savedPosition.HasValue)
             {
                 Point currentPosition = e.GetPosition(Parent as UIElement);
                 var control = sender as UIElement;
                 var transform = control.RenderTransform as TranslateTransform;
-                transform.X += currentPosition.X - savedPosition.X;
-                transform.Y += currentPosition.Y - savedPosition.Y;
+                transform.X += currentPosition.X - savedPosition.Value.X;
+                transform.Y += currentPosition.Y - savedPosition.Value.Y;
                 savedPosition = currentPosition;
             }
         }
