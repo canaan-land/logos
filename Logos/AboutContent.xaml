@@ -47,7 +47,7 @@
                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductVersion}" Style="{StaticResource ValueTextFont}"/>
 
                             <TextBlock Grid.Row="2" Grid.Column="0" Text="作者" Style="{StaticResource KeyTextFont}"/>
-                            <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph" Style="{StaticResource ValueTextFont}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="Joseph Chen" Style="{StaticResource ValueTextFont}"/>
 
                             <TextBlock Grid.Row="3" Grid.Column="0" Text="公司" Style="{StaticResource KeyTextFont}"/>
                             <TextBlock Grid.Row="3" Grid.Column="1" Text="迦南地" Style="{StaticResource ValueTextFont}"/>
