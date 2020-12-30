@@ -36,7 +36,7 @@ namespace Logos
             prevX = transform.X;
             prevY = transform.Y;
             control.ReleaseMouseCapture();
-        }
+        }        
 
         private void DisplayText_MouseMove(object sender, MouseEventArgs e)
         {
@@ -48,6 +48,28 @@ namespace Logos
                 transform.X += currentPosition.X - savedPosition.X;
                 transform.Y += currentPosition.Y - savedPosition.Y;
                 savedPosition = currentPosition;
+            }
+        }
+        
+        private void DisplayText_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var control = sender as FrameworkElement;
+            var displayData = control.DataContext as DisplayData;
+            if (e.Delta > 0 || (e.Delta < 0 && displayData.TextFontSize > 10))
+            {
+                Point pointOld = e.GetPosition(control);
+                double ratioX = pointOld.X / control.ActualWidth;
+                double ratioY = pointOld.Y / control.ActualHeight;
+                displayData.TextFontSize += e.Delta / 120 * 6;
+                control.UpdateLayout();
+                Point pointNew = new Point(
+                        control.ActualWidth * ratioX, control.ActualHeight * ratioY);
+                Vector pointDiff = Point.Subtract(pointNew, pointOld);
+                var transform = control.RenderTransform as TranslateTransform;
+                transform.X -= pointDiff.X;
+                transform.Y -= pointDiff.Y;
+                prevX = transform.X;
+                prevY = transform.Y;
             }
         }
     }
