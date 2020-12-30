@@ -17,7 +17,7 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel x:Name="SubPanel" Orientation="Vertical">
                         <ToolBarTray>
-                            <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False">
+                            <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False" Background="{x:Null}">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
                                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
@@ -80,12 +80,11 @@
                                         <materialDesign:PackIcon Kind="FormatUnderline"/>
                                     </ListBoxItem>
                                 </ListBox>
-                            </ToolBar>
-                            <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False">
-                                <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="120"
+                                <Separator Margin="6,6,6,6"/>
+                                <ComboBox x:Name="FontColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型色彩"
                                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                          HorizontalAlignment="Left" Margin="1,0,10,0"
+                                          HorizontalAlignment="Left"
                                           Text="{Binding Path=TextFontColor, Mode=TwoWay}">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
@@ -108,64 +107,71 @@
                                         <Binding Source="{StaticResource ColorProvider}"/>
                                     </ComboBox.ItemsSource>
                                 </ComboBox>
-                                <Separator Margin="6,6,6,6"/>
-                                <CheckBox x:Name="OutlineCheckBox" Style="{StaticResource MaterialDesignCheckBox}"
-                                          FontSize="15" FontFamily="微軟正黑體" Margin="0,0,10,0"
+                            </ToolBar>
+                            <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False" Background="{x:Null}">
+                                <CheckBox x:Name="OutlineCheckBox" Style="{StaticResource MahApps.Styles.CheckBox.Win10}"
+                                          FontSize="15" FontFamily="微軟正黑體"
                                           IsChecked="{Binding Path=TextOutline, Mode=TwoWay}">
                                     邊框
                                 </CheckBox>
-                                <ComboBox x:Name="OutlineColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="120"
-                                          materialDesign:HintAssist.Hint="邊框色彩"
-                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                          HorizontalAlignment="Left" Margin="1,0,10,0"
-                                          Text="{Binding Path=TextOutlineColor, Mode=TwoWay}"
-                                          IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}">
-                                    <ComboBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel/>
-                                        </ItemsPanelTemplate>
-                                    </ComboBox.ItemsPanel>
-                                    <ComboBox.Resources>
-                                        <ObjectDataProvider x:Key="ColorProvider" ObjectType="{x:Type local:ColorHelper}" MethodName="GetList"/>
-                                    </ComboBox.Resources>
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Rectangle Height="20" Width="20" Margin="0,0,10,0"
-                                                        Fill="{Binding Converter={local:StringToSolidColorBrushPair}}"/>
-                                                <TextBlock Text="{Binding}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                    <ComboBox.ItemsSource>
-                                        <Binding Source="{StaticResource ColorProvider}"/>
-                                    </ComboBox.ItemsSource>
-                                </ComboBox>
-                                <ComboBox x:Name="OutlineWidthComboBox" FontSize="15" FontFamily="微軟正黑體" Width="80"
-                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                          materialDesign:HintAssist.Hint="邊框寬度" IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}"
-                                          Text="{Binding Path=TextOutlineWidth, Mode=TwoWay}">
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                </ComboBox>
+                                <StackPanel Orientation="Horizontal" IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}">
+                                    <ComboBox x:Name="OutlineColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
+                                              materialDesign:HintAssist.Hint="邊框色彩"
+                                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                              HorizontalAlignment="Left" Margin="1,0,15,0"
+                                              Text="{Binding Path=TextOutlineColor, Mode=TwoWay}">
+                                        <ComboBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ComboBox.ItemsPanel>
+                                        <ComboBox.Resources>
+                                            <ObjectDataProvider x:Key="ColorProvider" ObjectType="{x:Type local:ColorHelper}" MethodName="GetList"/>
+                                        </ComboBox.Resources>
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Rectangle Height="20" Width="20" Margin="0,0,10,0"
+                                                            Fill="{Binding Converter={local:StringToSolidColorBrushPair}}"/>
+                                                    <TextBlock Text="{Binding}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                        <ComboBox.ItemsSource>
+                                            <Binding Source="{StaticResource ColorProvider}"/>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                    <StackPanel Orientation="Vertical">
+                                        <Label Content="邊框寬度" FontSize="11" FontFamily="微軟正黑體">
+                                            <Label.Style>
+                                                <Style TargetType="Label">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=OutlineCheckBox, Path=IsChecked}" Value="True">
+                                                            <Setter Property="Foreground" Value="DarkGray"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ElementName=OutlineCheckBox, Path=IsChecked}" Value="False">
+                                                            <Setter Property="Foreground" Value="Gray"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Label.Style>
+                                        </Label>
+                                        <Slider x:Name="OutlineWidthSlider" Style="{StaticResource MahApps.Styles.Slider.Win10}"
+                                                AutoToolTipPlacement="TopLeft" Minimum="1" Maximum="20"
+                                                SmallChange="1" LargeChange="1" IsSnapToTickEnabled="True"
+                                                mah:SliderHelper.ChangeValueBy="SmallChange"
+                                                mah:SliderHelper.EnableMouseWheel="MouseHover"
+                                                Width="200" TickFrequency="1" TickPlacement="BottomRight"
+                                                Value="{Binding Path=TextOutlineWidth, Mode=TwoWay}"
+                                                ToolTipService.ShowDuration="60000">
+                                            <Slider.ToolTip>
+                                                <ToolTip Content="{Binding Path=TextOutlineWidth}"
+                                                         ContentStringFormat="目前寬度：{0}"
+                                                         Placement="Right"/>
+                                            </Slider.ToolTip>
+                                        </Slider>
+                                    </StackPanel>
+                                </StackPanel>
                             </ToolBar>
                         </ToolBarTray>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
@@ -176,7 +182,8 @@
                                      TextDecorations="{Binding ElementName=UnderlineCheckbox, Path=IsSelected, Converter={local:BoolToUnderlineConverter}, Mode=OneWay}"
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
-                            <ToggleButton x:Name="DisplayButton" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            <ToggleButton x:Name="DisplayButton" Style="{StaticResource MahApps.Styles.ToggleButton.Circle}"
+                                          Width="50" Height="50"
                                           VerticalAlignment="Bottom" ToolTip="顯示/隱藏"
                                           IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}"
                                           Checked="DisplayButton_Checked" Unchecked="DisplayButton_Unchecked">
