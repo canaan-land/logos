@@ -44,49 +44,67 @@
             </Setter>
         </Style>
     </fw:AcrylicWindow.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.Column="0" fw:PointerTracker.Enabled="True" Background="#B0424242">
-            <DockPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" DockPanel.Dock="Top">
-                    <TextBlock Text="{Binding Path=ProductName}"
-                               FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Consolas"/>
+    <materialDesign:DialogHost x:Name="Dialog">
+        <materialDesign:DialogHost.DialogContent>
+            <Grid Margin="16" Width="200" Height="123.6">
+                <TextBlock Text="{Binding Path=ProductName}" FontSize="20" FontFamily="Consolas" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Alert" Margin="0,0,10,0" Width="20" Height="20"/>
+                    <TextBlock x:Name="DialogText" FontSize="15" FontFamily="微軟正黑體"/>
                 </StackPanel>
-                <ListView ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" x:Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top" Background="{x:Null}">
-                    <ListViewItem x:Name="MenuItemText" Padding="1" Selected="MenuItemText_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
-                                       Visibility="{Binding ElementName=MenuItemText, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                            <materialDesign:PackIcon Kind="FormatText" Margin="10,15,15,15"/>
-                            <TextBlock Text="文字" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="MenuItemDraw" Padding="1" Selected="MenuItemDraw_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
-                                       Visibility="{Binding ElementName=MenuItemDraw, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                            <materialDesign:PackIcon Kind="Draw" Margin="10,15,15,15"/>
-                            <TextBlock Text="繪圖" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="MenuItemAbout" Padding="1" Selected="MenuItemAbout_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
-                                       Visibility="{Binding ElementName=MenuItemAbout, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                            <materialDesign:PackIcon Kind="AboutOutline" Margin="10,15,15,15"/>
-                            <TextBlock Text="關於" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </DockPanel>
-        </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button FontSize="15" FontFamily="微軟正黑體"
+                            Style="{StaticResource MaterialDesignFlatButton}" IsCancel="True"
+                            Command="materialDesign:DialogHost.CloseDialogCommand">
+                        確定
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" x:Name="ContentGrid">
+            <Grid Grid.Column="0" fw:PointerTracker.Enabled="True" Background="#B0424242">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" DockPanel.Dock="Top">
+                        <TextBlock Text="{Binding Path=ProductName}"
+                                   FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Consolas"/>
+                    </StackPanel>
+                    <ListView ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" x:Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top" Background="{x:Null}">
+                        <ListViewItem x:Name="MenuItemText" Padding="1" Selected="MenuItemText_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
+                                           Visibility="{Binding ElementName=MenuItemText, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
+                                <materialDesign:PackIcon Kind="FormatText" Margin="10,15,15,15"/>
+                                <TextBlock Text="文字" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="MenuItemDraw" Padding="1" Selected="MenuItemDraw_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
+                                           Visibility="{Binding ElementName=MenuItemDraw, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
+                                <materialDesign:PackIcon Kind="Draw" Margin="10,15,15,15"/>
+                                <TextBlock Text="繪圖" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="MenuItemAbout" Padding="1" Selected="MenuItemAbout_Selected" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
+                                           Visibility="{Binding ElementName=MenuItemAbout, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
+                                <materialDesign:PackIcon Kind="AboutOutline" Margin="10,15,15,15"/>
+                                <TextBlock Text="關於" FontFamily="微軟正黑體" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </DockPanel>
+            </Grid>
 
+            <Grid Grid.Column="1" x:Name="ContentGrid">
+
+            </Grid>
         </Grid>
-    </Grid>
+    </materialDesign:DialogHost>
 </fw:AcrylicWindow>

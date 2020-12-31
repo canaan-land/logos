@@ -332,7 +332,8 @@ namespace Logos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ProductName, MessageBoxButton.OK, MessageBoxImage.Warning);
+                DialogText.Text = ex.Message;
+                Dialog.IsOpen = true;
             }
         }
     }
