@@ -138,7 +138,7 @@ namespace Logos
 
             RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.Fant);
 
-            Timer timer = new Timer(1000);
+            Timer timer = new Timer(100);
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
 
@@ -156,9 +156,10 @@ namespace Logos
         {
             Dispatcher.Invoke(DispatcherPriority.Normal, (Action)(() =>
             {
-                SecondHand.Angle = DateTime.Now.Second * 6;
-                MinuteHand.Angle = DateTime.Now.Minute * 6;
-                HourHand.Angle = DateTime.Now.Hour * 30 + DateTime.Now.Minute * 0.5;
+                DateTime dateTime = DateTime.Now;
+                SecondHand.Angle = dateTime.Second * 6 + 6 * dateTime.Millisecond / 1000.0;
+                MinuteHand.Angle = dateTime.Minute * 6;
+                HourHand.Angle = dateTime.Hour * 30 + dateTime.Minute * 0.5;
             }));
         }
 
