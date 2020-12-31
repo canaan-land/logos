@@ -46,5 +46,10 @@ namespace Logos
                 }
             }
         }
+
+        private void PasteButton_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainWindow).PasteTheWord();
+        }
     }
 }

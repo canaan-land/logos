@@ -312,5 +312,28 @@ namespace Logos
                 }
             }
         }
+
+        public void PasteTheWord()
+        {
+            try
+            {
+                if (!Clipboard.ContainsText())
+                {
+                    throw new Exception("不正確的剪貼簿內容型別");
+                }
+
+                string strText = Clipboard.GetText();
+                if (!ParseBible(ref strText))
+                {
+                    throw new Exception("theWord章節格式錯誤");
+                }
+
+                displayData.TextString = strText;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ProductName, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }

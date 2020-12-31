@@ -34,7 +34,7 @@ namespace Logos
             prevX = transform.X;
             prevY = transform.Y;
             control.ReleaseMouseCapture();
-        }        
+        }
 
         private void DisplayText_MouseMove(object sender, MouseEventArgs e)
         {

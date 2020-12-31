@@ -184,22 +184,27 @@
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
                             <ToggleButton x:Name="DisplayButton" Style="{StaticResource MahApps.Styles.ToggleButton.Circle}"
-                                          Width="50" Height="50"
+                                          Width="50" Height="50" Margin="0,0,10,0"
                                           VerticalAlignment="Bottom" ToolTip="顯示/隱藏"
                                           IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}"
                                           Checked="DisplayButton_Checked" Unchecked="DisplayButton_Unchecked">
                                 <materialDesign:PackIcon Kind="MonitorStar" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </ToggleButton>
+                            <Button x:Name="PasteButton" Style="{StaticResource MahApps.Styles.Button.Circle}"
+                                    Width="50" Height="50" Margin="0,0,10,0"
+                                    VerticalAlignment="Bottom" ToolTip="貼上theWord章節" Click="PasteButton_Click">
+                                <materialDesign:PackIcon Kind="ContentPaste" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Button>
                         </StackPanel>
                         <mah:ToggleSwitch x:Name="AutoDetectToggle" Margin="0,0,0,15"
                                           Header="自動偵測剪貼簿中的聖經章節" OnContent="開啟" OffContent="關閉"  
                                           IsOn="{Binding Path=AutoDetect}"/>
                         <mah:ToggleSwitch x:Name="CECompareToggle" Margin="0,0,0,15"
                                           Header="聖經卷名中英對照" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=CECompare}" IsEnabled="{Binding ElementName=AutoDetectToggle, Path=IsOn}"/>
+                                          IsOn="{Binding Path=CECompare}"/>
                         <mah:ToggleSwitch x:Name="ShowVerseToggle" Margin="0,0,0,0"
                                           Header="顯示聖經節數" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=ShowVerse}" IsEnabled="{Binding ElementName=AutoDetectToggle, Path=IsOn}"/>
+                                          IsOn="{Binding Path=ShowVerse}"/>
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
