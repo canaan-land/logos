@@ -15,7 +15,7 @@
                    FontWeight="{Binding Path=TextFontBold, Converter={local:BoolToBoldConverter}}"
                    FontStyle="{Binding Path=TextFontItalic, Converter={local:BoolToItalicConverter}}"
                    TextDecorations="{Binding Path=TextFontUnderline, Converter={local:BoolToUnderlineConverter}}"
-                   Fill="{Binding Path=TextFontColor}" Cursor="SizeAll" MouseLeftButtonDown="DisplayText_MouseLeftButtonDown" MouseLeftButtonUp="DisplayText_MouseLeftButtonUp" MouseMove="DisplayText_MouseMove" MouseWheel="DisplayText_MouseWheel">
+                   Fill="{Binding Path=TextFontColor}" Cursor="SizeAll" MouseLeftButtonDown="DisplayText_MouseLeftButtonDown" MouseLeftButtonUp="DisplayText_MouseLeftButtonUp" MouseMove="DisplayText_MouseMove" MouseWheel="DisplayText_MouseWheel" MouseRightButtonUp="DisplayText_MouseRightButtonUp">
             <local:OutlinedTextBlock.Style>
                 <Style TargetType="local:OutlinedTextBlock">
                     <Style.Triggers>

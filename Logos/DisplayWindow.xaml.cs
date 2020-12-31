@@ -48,7 +48,12 @@ namespace Logos
                 savedPosition = currentPosition;
             }
         }
-        
+
+        private void DisplayText_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ((sender as FrameworkElement).DataContext as DisplayData).IsTextDisplay = false;
+        }
+
         private void DisplayText_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var control = sender as FrameworkElement;
