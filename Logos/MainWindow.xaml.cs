@@ -2,10 +2,12 @@
 using NHotkey.Wpf;
 using System;
 using System.Linq;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using WK.Libraries.SharpClipboardNS;
 
 namespace Logos
@@ -134,6 +136,12 @@ namespace Logos
         {
             InitializeComponent();
 
+            RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.Fant);
+
+            Timer timer = new Timer(1000);
+            timer.Elapsed += Timer_Elapsed;
+            timer.Enabled = true;
+
             textContent = new TextContent() { DataContext = this };
             textContent.SubPanel.DataContext = displayData;
             drawContent = new DrawContent() { DataContext = this };
@@ -142,6 +150,16 @@ namespace Logos
             MenuItemText.IsSelected = true;
 
             clipboard.ClipboardChanged += ClipboardChanged;
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Dispatcher.Invoke(DispatcherPriority.Normal, (Action)(() =>
+            {
+                SecondHand.Angle = DateTime.Now.Second * 6;
+                MinuteHand.Angle = DateTime.Now.Minute * 6;
+                HourHand.Angle = DateTime.Now.Hour * 30 + DateTime.Now.Minute * 0.5;
+            }));
         }
 
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
