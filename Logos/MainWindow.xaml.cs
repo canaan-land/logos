@@ -205,7 +205,6 @@ namespace Logos
         private DisplayWindow displayWindow;
         public void Display()
         {
-            WindowState = WindowState.Minimized;
             displayWindow = new DisplayWindow()
             {
                 DataContext = this
