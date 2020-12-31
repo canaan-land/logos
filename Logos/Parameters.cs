@@ -27,7 +27,7 @@ namespace Logos
         [JsonPropertyName("outlineColor")]
         public string OutlineColor { get; set; }
         [JsonPropertyName("outlineWidth")]
-        public decimal OutlineWidth { get; set; }
+        public double OutlineWidth { get; set; }
         [JsonPropertyName("autoDetect")]
         public bool AutoDetect { get; set; }
         [JsonPropertyName("ceCompare")]
@@ -159,7 +159,7 @@ namespace Logos
             }
         }
 
-        public decimal TextOutlineWidth
+        public double TextOutlineWidth
         {
             get => parameters.OutlineWidth;
             set
