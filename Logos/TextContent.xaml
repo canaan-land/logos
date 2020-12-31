@@ -67,6 +67,7 @@
                                     <ComboBoxItem>36</ComboBoxItem>
                                     <ComboBoxItem>48</ComboBoxItem>
                                     <ComboBoxItem>72</ComboBoxItem>
+                                    <ComboBoxItem>96</ComboBoxItem>
                                 </ComboBox>
                                 <Separator Margin="6,6,6,6"/>
                                 <ListBox SelectionMode="Extended" Style="{StaticResource MaterialDesignToolToggleFlatListBox}">

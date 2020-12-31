@@ -47,7 +47,7 @@ namespace Logos
         public DisplayData()
         {
             TextFont = "微軟正黑體";
-            TextFontSize = 72;
+            TextFontSize = 96;
             TextFontBold = true;
             TextFontItalic = TextFontUnderline = false;
             TextFontColor = GetColorName(Colors.Red);
