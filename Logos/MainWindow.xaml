@@ -118,7 +118,8 @@
                             <Rectangle.RenderTransform>
                                 <RotateTransform x:Name="SecondHand" CenterX="0.5" CenterY="90" Angle="80"/>
                             </Rectangle.RenderTransform>
-                        </Rectangle>                        
+                        </Rectangle>
+                        <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Gold"/>
                     </Grid>
                 </DockPanel>
             </Grid>
