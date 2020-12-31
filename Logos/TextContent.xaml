@@ -196,10 +196,10 @@
                                           IsOn="{Binding Path=AutoDetect}"/>
                         <mah:ToggleSwitch x:Name="CECompareToggle" Margin="0,0,0,15"
                                           Header="聖經卷名中英對照" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=CECompare}"/>
+                                          IsOn="{Binding Path=CECompare}" IsEnabled="{Binding ElementName=AutoDetectToggle, Path=IsOn}"/>
                         <mah:ToggleSwitch x:Name="ShowVerseToggle" Margin="0,0,0,0"
                                           Header="顯示聖經節數" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=ShowVerse}"/>
+                                          IsOn="{Binding Path=ShowVerse}" IsEnabled="{Binding ElementName=AutoDetectToggle, Path=IsOn}"/>
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
