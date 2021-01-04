@@ -52,7 +52,10 @@
                                 mah:SliderHelper.ChangeValueBy="SmallChange"
                                 mah:SliderHelper.EnableMouseWheel="MouseHover"
                                 Width="300" TickFrequency="1" TickPlacement="BottomRight"
-                                Value="{Binding Path=DrawPenWidth, Mode=TwoWay}"/>
+                                Value="{Binding Path=DrawPenWidth, Mode=TwoWay}" Margin="0,0,0,25"/>
+                        <Button x:Name="DrawButton" Content="開始繪圖" FontSize="15" FontFamily="微軟正黑體"
+                                Width="100" HorizontalAlignment="Left"
+                                Style="{StaticResource MahApps.Styles.Button.Flat}"/>
                     </StackPanel>                    
                 </ScrollViewer>
             </StackPanel>
