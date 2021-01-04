@@ -225,14 +225,37 @@ namespace Logos
             }
         }
 
+        private DrawWindow drawWindow;
+        public void StartDraw()
+        {
+            drawWindow = new DrawWindow()
+            {
+                DataContext = this
+            };
+            drawWindow.Show();
+            HotkeyManager.Current.AddOrReplace("Escape", Key.Escape, ModifierKeys.None, OnEscape);
+        }
+
+        public void StopDraw()
+        {
+            HotkeyManager.Current.Remove("Escape");
+            if (drawWindow != null)
+            {
+                drawWindow.Close();
+                drawWindow = null;
+            }
+        }
+
         private void OnEscape(object sender, HotkeyEventArgs e)
         {
             displayData.IsTextDisplay = false;
+            StopDraw();
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             displayData.IsTextDisplay = false;
+            StopDraw();
         }
 
         private bool ParseBible(ref string strText)

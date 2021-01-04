@@ -11,5 +11,10 @@ namespace Logos
         {
             InitializeComponent();
         }
+
+        private void DrawButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            (DataContext as MainWindow).StartDraw();
+        }
     }
 }
