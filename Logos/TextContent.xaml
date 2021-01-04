@@ -144,9 +144,9 @@
                                     </ComboBox>
                                     <StackPanel Orientation="Vertical">
                                         <StackPanel Orientation="Horizontal">
-                                            <Label Content="邊框寬度" FontSize="11" FontFamily="微軟正黑體">
-                                                <Label.Style>
-                                                    <Style TargetType="Label">
+                                            <TextBlock Text="邊框寬度：" FontSize="11" FontFamily="微軟正黑體">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding ElementName=OutlineCheckBox, Path=IsChecked}" Value="True">
                                                                 <Setter Property="Foreground" Value="DarkGray"/>
@@ -156,12 +156,12 @@
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
-                                                </Label.Style>
-                                            </Label>
-                                            <Label FontSize="11" FontFamily="微軟正黑體"
-                                                   Content="{Binding ElementName=OutlineWidthSlider, Path=Value}">
-                                                <Label.Style>
-                                                    <Style TargetType="Label">
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                            <TextBlock FontSize="11" FontFamily="微軟正黑體"
+                                                       Text="{Binding ElementName=OutlineWidthSlider, Path=Value}">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding ElementName=OutlineCheckBox, Path=IsChecked}" Value="True">
                                                                 <Setter Property="Foreground" Value="DarkGray"/>
@@ -171,8 +171,8 @@
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
-                                                </Label.Style>
-                                            </Label>
+                                                </TextBlock.Style>
+                                            </TextBlock>
                                         </StackPanel>
                                         <Slider x:Name="OutlineWidthSlider" Style="{StaticResource MahApps.Styles.Slider.Win10}"
                                                 AutoToolTipPlacement="TopLeft" Minimum="1" Maximum="20"
