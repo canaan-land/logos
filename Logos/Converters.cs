@@ -105,7 +105,7 @@ namespace Logos
         }
     }
 
-    public class StringToSolidColorBrushPair : MarkupExtension, IValueConverter
+    public class StringToSolidColorBrush : MarkupExtension, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {

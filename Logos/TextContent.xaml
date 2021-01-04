@@ -99,7 +99,7 @@
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
                                                 <Rectangle Height="20" Width="20" Margin="0,0,10,0"
-                                                        Fill="{Binding Converter={local:StringToSolidColorBrushPair}}"/>
+                                                        Fill="{Binding Converter={local:StringToSolidColorBrush}}"/>
                                                 <TextBlock Text="{Binding}"/>
                                             </StackPanel>
                                         </DataTemplate>
@@ -133,7 +133,7 @@
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
                                                     <Rectangle Height="20" Width="20" Margin="0,0,10,0"
-                                                            Fill="{Binding Converter={local:StringToSolidColorBrushPair}}"/>
+                                                            Fill="{Binding Converter={local:StringToSolidColorBrush}}"/>
                                                     <TextBlock Text="{Binding}"/>
                                                 </StackPanel>
                                             </DataTemplate>

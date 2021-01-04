@@ -228,6 +228,7 @@ namespace Logos
         private DrawWindow drawWindow;
         public void StartDraw()
         {
+            WindowState = WindowState.Minimized;
             drawWindow = new DrawWindow()
             {
                 DataContext = this

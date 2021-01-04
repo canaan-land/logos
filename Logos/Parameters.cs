@@ -19,7 +19,7 @@ namespace Logos
         [JsonPropertyName("fontUnderline")]
         public bool FontUnderline { get; set; }
         [JsonPropertyName("fontColor")]
-        public string FontColor { get; set; }        
+        public string FontColor { get; set; }
         [JsonPropertyName("outline")]
         public bool Outline { get; set; }
         [JsonPropertyName("outlineColor")]
