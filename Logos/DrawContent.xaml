@@ -5,15 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Logos"
              mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <TextBlock Text="{Binding Path=MenuItemDrawName}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
-            <Grid>
-
-            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
+                    <StackPanel x:Name="SubPanel" Orientation="Vertical">
+                        <ComboBox x:Name="DrawColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
+                                          materialDesign:HintAssist.Hint="筆刷色彩"
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                          HorizontalAlignment="Left"
+                                          Text="{Binding Path=DrawPenColor, Mode=TwoWay}">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                            <ComboBox.Resources>
+                                <ObjectDataProvider x:Key="ColorProvider" ObjectType="{x:Type local:ColorHelper}" MethodName="GetList"/>
+                            </ComboBox.Resources>
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Height="20" Width="20" Margin="0,0,10,0"
+                                                        Fill="{Binding Converter={local:StringToSolidColorBrushPair}}"/>
+                                        <TextBlock Text="{Binding}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                            <ComboBox.ItemsSource>
+                                <Binding Source="{StaticResource ColorProvider}"/>
+                            </ComboBox.ItemsSource>
+                        </ComboBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
         </DockPanel>
     </Grid>
 </UserControl>

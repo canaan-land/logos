@@ -145,6 +145,7 @@ namespace Logos
             textContent = new TextContent() { DataContext = this };
             textContent.SubPanel.DataContext = displayData;
             drawContent = new DrawContent() { DataContext = this };
+            drawContent.SubPanel.DataContext = displayData;
             aboutContent = new AboutContent() { DataContext = this };
 
             MenuItemText.IsSelected = true;

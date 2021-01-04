@@ -19,9 +19,7 @@ namespace Logos
         [JsonPropertyName("fontUnderline")]
         public bool FontUnderline { get; set; }
         [JsonPropertyName("fontColor")]
-        public string FontColor { get; set; }
-        [JsonPropertyName("penWidth")]
-        public int PenWidth { get; set; }
+        public string FontColor { get; set; }        
         [JsonPropertyName("outline")]
         public bool Outline { get; set; }
         [JsonPropertyName("outlineColor")]
@@ -34,6 +32,10 @@ namespace Logos
         public bool CECompare { get; set; }
         [JsonPropertyName("showVerse")]
         public bool ShowVerse { get; set; }
+        [JsonPropertyName("penColor")]
+        public string PenColor { get; set; }
+        [JsonPropertyName("penWidth")]
+        public int PenWidth { get; set; }
     }
 
     public class DisplayData : INotifyPropertyChanged
@@ -57,6 +59,8 @@ namespace Logos
             AutoDetect = true;
             CECompare = true;
             ShowVerse = false;
+            DrawPenColor = GetColorName(Colors.Red);
+            DrawPenWidth = 2;
         }
 
         public string TextString
@@ -195,6 +199,26 @@ namespace Logos
             set
             {
                 parameters.ShowVerse = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string DrawPenColor
+        {
+            get => parameters.PenColor;
+            set
+            {
+                parameters.PenColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int DrawPenWidth
+        {
+            get => parameters.PenWidth;
+            set
+            {
+                parameters.PenWidth = value;
                 OnPropertyChanged();
             }
         }
