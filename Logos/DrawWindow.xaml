@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="DrawWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" ShowInTaskbar="False">
-    <Grid x:Name="DrawPanel"
+    <Window.Resources>
+        <Cursor x:Key="DrawCursor">
+            Resources/pen.cur
+        </Cursor>
+    </Window.Resources>
+    <Grid x:Name="DrawPanel" Cursor="{StaticResource DrawCursor}"
           MouseRightButtonUp="DrawPanel_MouseRightButtonUp"
           MouseLeftButtonDown="DrawPanel_MouseLeftButtonDown"
           MouseLeftButtonUp="DrawPanel_MouseLeftButtonUp"

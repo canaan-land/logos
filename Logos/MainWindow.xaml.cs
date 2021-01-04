@@ -245,6 +245,7 @@ namespace Logos
                 drawWindow.Close();
                 drawWindow = null;
             }
+            WindowState = WindowState.Normal;
         }
 
         private void OnEscape(object sender, HotkeyEventArgs e)
