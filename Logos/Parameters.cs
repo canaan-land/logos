@@ -60,7 +60,7 @@ namespace Logos
             CECompare = true;
             ShowVerse = false;
             DrawPenColor = GetColorName(Colors.Red);
-            DrawPenWidth = 2;
+            DrawPenWidth = 5;
         }
 
         public string TextString
