@@ -232,10 +232,7 @@ namespace Logos
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (displayData.IsTextDisplay)
-            {
-                displayWindow.Close();
-            }
+            displayData.IsTextDisplay = false;
         }
 
         private bool ParseBible(ref string strText)
