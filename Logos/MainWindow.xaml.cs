@@ -1,7 +1,9 @@
 ﻿using NHotkey;
 using NHotkey.Wpf;
 using System;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -127,6 +129,7 @@ namespace Logos
 
         public readonly DisplayData displayData = new DisplayData();
         private readonly SharpClipboard clipboard = new SharpClipboard();
+        private readonly string strJsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LOGOS.json");
 
         private readonly TextContent textContent;
         private readonly DrawContent drawContent;
@@ -141,6 +144,26 @@ namespace Logos
             Timer timer = new Timer(100);
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
+
+            if (File.Exists(strJsonPath))
+            {
+                string strJson = File.ReadAllText(strJsonPath);
+                Parameters sParams = JsonSerializer.Deserialize<Parameters>(strJson);
+                displayData.TextFont = sParams.Font;
+                displayData.TextFontSize = sParams.FontSize;
+                displayData.TextFontBold = sParams.FontBold;
+                displayData.TextFontItalic = sParams.FontItalic;
+                displayData.TextFontUnderline = sParams.FontUnderline;
+                displayData.TextFontColor = sParams.FontColor;
+                displayData.TextOutline = sParams.Outline;
+                displayData.TextOutlineColor = sParams.OutlineColor;
+                displayData.TextOutlineWidth = sParams.OutlineWidth;
+                displayData.AutoDetect = sParams.AutoDetect;
+                displayData.CECompare = sParams.CECompare;
+                displayData.ShowVerse = sParams.ShowVerse;
+                displayData.DrawPenColor = sParams.PenColor;
+                displayData.DrawPenWidth = sParams.PenWidth;
+            }
 
             textContent = new TextContent() { DataContext = this };
             textContent.SubPanel.DataContext = displayData;
@@ -262,6 +285,9 @@ namespace Logos
         {
             displayData.IsTextDisplay = false;
             StopDraw();
+
+            string strJson = JsonSerializer.Serialize(displayData.Params);
+            File.WriteAllText(strJsonPath, strJson);
         }
 
         private bool ParseBible(ref string strText)

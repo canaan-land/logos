@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace Logos
 {
-    class Parameters
+    public class Parameters
     {
         [JsonPropertyName("font")]
         public string Font { get; set; }
@@ -221,6 +221,11 @@ namespace Logos
                 parameters.PenWidth = value;
                 OnPropertyChanged();
             }
+        }
+
+        public Parameters Params
+        {
+            get => parameters;
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
