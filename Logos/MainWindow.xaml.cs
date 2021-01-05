@@ -235,7 +235,7 @@ namespace Logos
             };
             displayWindow.DisplayText.DataContext = displayData;
             displayWindow.Show();
-            HotkeyManager.Current.AddOrReplace("TextEscape", Key.Escape, ModifierKeys.None, OnTextEscape);
+            HotkeyManager.Current.AddOrReplace("TextEscape", Key.Escape, ModifierKeys.None, (o, e) => displayData.IsTextDisplay = false);
         }
 
         public void Undisplay()
@@ -257,7 +257,7 @@ namespace Logos
                 DataContext = this
             };
             drawWindow.Show();
-            HotkeyManager.Current.AddOrReplace("DrawEscape", Key.Escape, ModifierKeys.None, OnDrawEscape);
+            HotkeyManager.Current.AddOrReplace("DrawEscape", Key.Escape, ModifierKeys.None, (o, e) => StopDraw());
         }
 
         public void StopDraw()
@@ -269,16 +269,6 @@ namespace Logos
                 drawWindow = null;
             }
             WindowState = WindowState.Normal;
-        }
-
-        private void OnTextEscape(object sender, HotkeyEventArgs e)
-        {
-            displayData.IsTextDisplay = false;
-        }
-
-        private void OnDrawEscape(object sender, HotkeyEventArgs e)
-        {
-            StopDraw();
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
