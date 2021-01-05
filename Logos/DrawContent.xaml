@@ -64,7 +64,7 @@
                         </Grid>
                         <Button x:Name="DrawButton" Content="開始繪圖" FontSize="15" FontFamily="微軟正黑體"
                                 Width="100" HorizontalAlignment="Left"
-                                Style="{StaticResource MahApps.Styles.Button.Flat}" Click="DrawButton_Click"
+                                Style="{StaticResource MaterialDesignFlatDarkBgButton}" Click="DrawButton_Click"
                                 IsEnabled="{Binding Path=IsTextDisplay, Converter={StaticResource NotConverter}}"/>
                     </StackPanel>                    
                 </ScrollViewer>
