@@ -19,7 +19,7 @@ namespace Logos
     /// </summary>
     public partial class MainWindow
     {
-        struct BibleBookStruct
+        private readonly struct BibleBookStruct
         {
             public readonly string TChinese;
             public readonly string English;
