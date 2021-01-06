@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -282,55 +283,26 @@ namespace Logos
 
         private bool ParseBible(ref string strText)
         {
-            string strToParse = strText;
-            BibleBookStruct sBook;
-            int nBookIdx, nColonIdx, nLastIdx;
+            string strToParse = strText.TrimStart(' ', '(');
 
-            strToParse = strToParse.TrimStart(new char[] { ' ', '(' });
-
-            nBookIdx = strToParse.IndexOf(' ');
-            if (nBookIdx >= 0 && nBookIdx < 3)
-            {
-                var bookTC = strToParse.Substring(0, nBookIdx);
-                sBook = Array.Find(BibleBookList, bb => bb.TChinese == bookTC);
-                if (sBook.TChinese == null)
-                {
-                    return false;
-                }
-            }
-            else
+            string bookTC = new string(strToParse.TakeWhile(c => !char.IsWhiteSpace(c)).ToArray());
+            BibleBookStruct sBook = Array.Find(BibleBookList, bb => bb.TChinese == bookTC);
+            if (sBook.TChinese == null)
             {
                 return false;
             }
 
-            nColonIdx = strToParse.IndexOf(':');
-            if (nColonIdx < 0)
+            Regex regex = new Regex(@"^.+ \d+:\d+");
+            Match match = regex.Match(strToParse);
+            if (!match.Success)
             {
                 return false;
             }
-
-            if (strToParse.Length <= nColonIdx + 1)
-            {
-                return false;
-            }
-
-            for (nLastIdx = nColonIdx + 1; nLastIdx < strToParse.Length && char.IsDigit(strToParse, nLastIdx); nLastIdx++) ;
-
-            if (nLastIdx == nColonIdx + 1)
-            {
-                return false;
-            }
-
-            strToParse = strToParse.Substring(0, nLastIdx);
-
-            if (!strToParse.Contains(" "))
-            {
-                return false;
-            }
+            strToParse = match.Value;
 
             if (displayData.CECompare)
             {
-                strToParse = strToParse.Insert(strToParse.IndexOf(' '), " " + sBook.English);
+                strToParse = strToParse.Insert(strToParse.IndexOf(' '), ' ' + sBook.English);
             }
 
             if (!displayData.ShowVerse)
