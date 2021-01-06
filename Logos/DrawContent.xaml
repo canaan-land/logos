@@ -12,16 +12,17 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding Path=MenuItemDrawName}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
+                <TextBlock Text="{Binding Path=MenuItemDrawName}" Foreground="{StaticResource MaterialDesignDarkForeground}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
                     <StackPanel x:Name="SubPanel" Orientation="Vertical">
                         <ComboBox x:Name="DrawColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
-                                          materialDesign:HintAssist.Hint="筆刷色彩"
-                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                          HorizontalAlignment="Left"
-                                          Text="{Binding Path=DrawPenColor, Mode=TwoWay}" Margin="0,0,0,25">
+                                  Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                  materialDesign:HintAssist.Hint="筆刷色彩"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  HorizontalAlignment="Left"
+                                  Text="{Binding Path=DrawPenColor, Mode=TwoWay}" Margin="0,0,0,25">
                             <ComboBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel/>
@@ -35,7 +36,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <Rectangle Height="20" Width="20" Margin="0,0,10,0"
                                                    Fill="{Binding Converter={local:StringToSolidColorBrush}}"/>
-                                        <TextBlock Text="{Binding}"/>
+                                        <TextBlock Text="{Binding}" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
@@ -44,8 +45,8 @@
                             </ComboBox.ItemsSource>
                         </ComboBox>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <TextBlock Text="筆刷寬度：" FontSize="15" FontFamily="微軟正黑體"/>
-                            <TextBlock Text="{Binding ElementName=PenWidthSlider, Path=Value}" FontSize="15" FontFamily="微軟正黑體"/>
+                            <TextBlock Text="筆刷寬度：" FontSize="15" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
+                            <TextBlock Text="{Binding ElementName=PenWidthSlider, Path=Value}" FontSize="15" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesignDarkForeground}"/>
                         </StackPanel>    
                         <Slider x:Name="PenWidthSlider" Style="{StaticResource MahApps.Styles.Slider.Win10}"
                                 AutoToolTipPlacement="TopLeft" Minimum="2" Maximum="50"
@@ -54,7 +55,7 @@
                                 mah:SliderHelper.EnableMouseWheel="MouseHover"
                                 Width="300" TickFrequency="1" TickPlacement="BottomRight"
                                 Value="{Binding Path=DrawPenWidth, Mode=TwoWay}" Margin="0,0,0,25"/>
-                        <TextBlock Text="筆刷預覽" FontSize="15" FontFamily="微軟正黑體" Margin="0,0,0,10"/>
+                        <TextBlock Text="筆刷預覽" FontSize="15" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="0,0,0,10"/>
                         <Grid x:Name="DrawPreview" Width="100" Height="100" Background="White"
                               HorizontalAlignment="Left" Margin="0,0,0,25">
                             <Ellipse Fill="{Binding Path=DrawPenColor, Converter={local:StringToSolidColorBrush}}"

@@ -12,7 +12,7 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding Path=MenuItemTextName}" FontSize="30" Margin="20,40,10,20" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
+                <TextBlock Text="{Binding Path=MenuItemTextName}" Foreground="{StaticResource MaterialDesignDarkForeground}" FontSize="30" Margin="20,40,10,20" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
@@ -36,7 +36,7 @@
                                         </Style>
                                         <DataTemplate x:Key="FontTemplate">
                                             <StackPanel VirtualizingStackPanel.IsVirtualizing="True">
-                                                <TextBlock Text="{Binding}" ToolTip="{Binding}" Style="{StaticResource FontStyle}" />
+                                                <TextBlock Text="{Binding}" ToolTip="{Binding}" Style="{StaticResource FontStyle}"/>
                                             </StackPanel>
                                         </DataTemplate>
                                         <ObjectDataProvider x:Key="FontProvider" ObjectType="{x:Type local:InstalledFonts}" MethodName="GetList"/>
@@ -193,6 +193,7 @@
                                      FontStyle="{Binding ElementName=ItalicCheckbox, Path=IsSelected, Converter={local:BoolToItalicConverter}, Mode=OneWay}"
                                      TextDecorations="{Binding ElementName=UnderlineCheckbox, Path=IsSelected, Converter={local:BoolToUnderlineConverter}, Mode=OneWay}"
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
+                                     Foreground="{StaticResource MaterialDesignDarkForeground}"
                                      Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
                             <ToggleButton x:Name="DisplayButton" Style="{StaticResource MahApps.Styles.ToggleButton.Circle}"
                                           Width="50" Height="50" Margin="0,0,10,0"

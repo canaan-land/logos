@@ -12,6 +12,7 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontFamily" Value="微軟正黑體"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{StaticResource MaterialDesignDarkForeground}"/>
         </Style>
         <Style x:Key="ValueTextFont" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>
@@ -23,7 +24,7 @@
     <Grid Background="Black">
         <DockPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Text="{Binding Path=MenuItemAboutName}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
+                <TextBlock Text="{Binding Path=MenuItemAboutName}" Foreground="{StaticResource MaterialDesignDarkForeground}" FontSize="30" Margin="20,40,10,10" VerticalAlignment="Center" FontFamily="微軟正黑體"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
