@@ -138,6 +138,8 @@ namespace Logos
 
         public MainWindow()
         {
+            SourceChord.FluentWPF.ResourceDictionaryEx.GlobalTheme = SourceChord.FluentWPF.ElementTheme.Dark;
+
             InitializeComponent();
 
             RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.Fant);
