@@ -1,5 +1,4 @@
-﻿using NHotkey;
-using NHotkey.Wpf;
+﻿using NHotkey.Wpf;
 using System;
 using System.IO;
 using System.Linq;
