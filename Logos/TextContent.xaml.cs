@@ -39,7 +39,7 @@ namespace Logos
 
         private void StringTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key.Equals(Key.Enter))
             {
                 if (!(DataContext as MainWindow).displayData.IsTextDisplay)
                 {

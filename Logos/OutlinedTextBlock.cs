@@ -273,7 +273,7 @@ namespace Logos
                 return;
             }
 
-            _FormattedText.MaxLineCount = TextWrapping == TextWrapping.NoWrap ? 1 : int.MaxValue;
+            _FormattedText.MaxLineCount = TextWrapping.Equals(TextWrapping.NoWrap) ? 1 : int.MaxValue;
             _FormattedText.TextAlignment = TextAlignment;
             _FormattedText.Trimming = TextTrimming;
 

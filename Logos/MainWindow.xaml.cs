@@ -280,7 +280,7 @@ namespace Logos
             string strToParse = strText.TrimStart(' ', '(');
 
             string bookTC = new string(strToParse.TakeWhile(c => !char.IsWhiteSpace(c)).ToArray());
-            BibleBookStruct sBook = Array.Find(BibleBookList, bb => bb.TChinese == bookTC);
+            BibleBookStruct sBook = Array.Find(BibleBookList, bb => bb.TChinese.Equals(bookTC));
             if (sBook.TChinese is null)
             {
                 return false;
@@ -323,12 +323,12 @@ namespace Logos
         {
             if (displayData.AutoDetect)
             {
-                if (e.ContentType == SharpClipboard.ContentTypes.Text)
+                if (e.ContentType.Equals(SharpClipboard.ContentTypes.Text))
                 {
                     string strText = clipboard.ClipboardText;
                     if (ParseBible(ref strText))
                     {
-                        if (displayData.TextString != strText)
+                        if (!string.Equals(displayData.TextString, strText))
                         {
                             displayData.TextString = strText;
                         }
