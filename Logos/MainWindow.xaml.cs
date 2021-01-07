@@ -132,10 +132,6 @@ namespace Logos
         private readonly SharpClipboard clipboard = new SharpClipboard();
         private readonly string strJsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LOGOS.json");
 
-        private readonly TextContent textContent;
-        private readonly DrawContent drawContent;
-        private readonly AboutContent aboutContent;
-
         public MainWindow()
         {
             SourceChord.FluentWPF.ResourceDictionaryEx.GlobalTheme = SourceChord.FluentWPF.ElementTheme.Dark;
@@ -168,12 +164,6 @@ namespace Logos
                 displayData.DrawPenWidth = sParams.PenWidth;
             }
 
-            textContent = new TextContent() { DataContext = this };
-            textContent.SubPanel.DataContext = displayData;
-            drawContent = new DrawContent() { DataContext = this };
-            drawContent.SubPanel.DataContext = displayData;
-            aboutContent = new AboutContent() { DataContext = this };
-
             MenuItemText.IsSelected = true;
 
             clipboard.ClipboardChanged += ClipboardChanged;
@@ -192,17 +182,17 @@ namespace Logos
 
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(textContent);
+            ContentFrame.Navigate(new TextContent(displayData) { DataContext = this });
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(drawContent);
+            ContentFrame.Navigate(new DrawContent(displayData) { DataContext = this });
         }
 
         private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(aboutContent);
+            ContentFrame.Navigate(new AboutContent() { DataContext = this });
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
@@ -229,19 +219,22 @@ namespace Logos
         private DisplayWindow displayWindow;
         public void Display()
         {
-            displayWindow = new DisplayWindow()
+            if (displayWindow is null)
             {
-                DataContext = this
-            };
-            displayWindow.DisplayText.DataContext = displayData;
-            displayWindow.Show();
+                displayWindow = new DisplayWindow()
+                {
+                    DataContext = this
+                };
+                displayWindow.DisplayText.DataContext = displayData;
+                displayWindow.Show();
+            }
             HotkeyManager.Current.AddOrReplace("TextEscape", Key.Escape, ModifierKeys.None, (o, e) => displayData.IsTextDisplay = false);
         }
 
         public void Undisplay()
         {
             HotkeyManager.Current.Remove("TextEscape");
-            if (displayWindow != null)
+            if (displayWindow is not null)
             {
                 displayWindow.Close();
                 displayWindow = null;
@@ -252,18 +245,21 @@ namespace Logos
         public void StartDraw()
         {
             WindowState = WindowState.Minimized;
-            drawWindow = new DrawWindow()
+            if (drawWindow is null)
             {
-                DataContext = this
-            };
-            drawWindow.Show();
+                drawWindow = new DrawWindow()
+                {
+                    DataContext = this
+                };
+                drawWindow.Show();
+            }
             HotkeyManager.Current.AddOrReplace("DrawEscape", Key.Escape, ModifierKeys.None, (o, e) => StopDraw());
         }
 
         public void StopDraw()
         {
             HotkeyManager.Current.Remove("DrawEscape");
-            if (drawWindow != null)
+            if (drawWindow is not null)
             {
                 drawWindow.Close();
                 drawWindow = null;
@@ -273,7 +269,7 @@ namespace Logos
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            displayData.IsTextDisplay = false;
+            Undisplay();
             StopDraw();
 
             string strJson = JsonSerializer.Serialize(displayData.Params);
@@ -286,7 +282,7 @@ namespace Logos
 
             string bookTC = new string(strToParse.TakeWhile(c => !char.IsWhiteSpace(c)).ToArray());
             BibleBookStruct sBook = Array.Find(BibleBookList, bb => bb.TChinese == bookTC);
-            if (sBook.TChinese == null)
+            if (sBook.TChinese is null)
             {
                 return false;
             }
@@ -309,7 +305,7 @@ namespace Logos
                 strToParse = strToParse.Substring(0, strToParse.IndexOf(':'));
             }
 
-            if (sBook.Alternative != null)
+            if (sBook.Alternative is not null)
             {
                 strToParse = strToParse.Replace(sBook.TChinese, sBook.Alternative);
             }

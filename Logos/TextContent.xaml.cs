@@ -10,9 +10,10 @@ namespace Logos
     /// </summary>
     public partial class TextContent : Page
     {
-        public TextContent()
+        public TextContent(object displayData)
         {
             InitializeComponent();
+            SubPanel.DataContext = displayData;
         }
 
         private void FontSizeComboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

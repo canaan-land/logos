@@ -7,9 +7,10 @@ namespace Logos
     /// </summary>
     public partial class DrawContent : Page
     {
-        public DrawContent()
+        public DrawContent(object displayData)
         {
             InitializeComponent();
+            SubPanel.DataContext = displayData;
         }
 
         private void DrawButton_Click(object sender, System.Windows.RoutedEventArgs e)

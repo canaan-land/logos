@@ -249,7 +249,7 @@ namespace Logos
 
         private void EnsureFormattedText()
         {
-            if (_FormattedText != null)
+            if (_FormattedText is not null)
             {
                 return;
             }
@@ -268,7 +268,7 @@ namespace Logos
 
         private void UpdateFormattedText()
         {
-            if (_FormattedText == null)
+            if (_FormattedText is null)
             {
                 return;
             }
@@ -287,7 +287,7 @@ namespace Logos
 
         private void EnsureGeometry()
         {
-            if (_TextGeometry != null)
+            if (_TextGeometry is not null)
             {
                 return;
             }
