@@ -124,8 +124,8 @@
                 </DockPanel>
             </Grid>
 
-            <Grid Grid.Column="1" x:Name="ContentGrid">
-
+            <Grid Grid.Column="1">
+                <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
     </materialDesign:DialogHost>

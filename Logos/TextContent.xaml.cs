@@ -8,7 +8,7 @@ namespace Logos
     /// <summary>
     /// TextContent.xaml 的互動邏輯
     /// </summary>
-    public partial class TextContent : UserControl
+    public partial class TextContent : Page
     {
         public TextContent()
         {

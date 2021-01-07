@@ -192,20 +192,17 @@ namespace Logos
 
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
         {
-            ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(textContent);
+            ContentFrame.Navigate(textContent);
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
         {
-            ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(drawContent);
+            ContentFrame.Navigate(drawContent);
         }
 
         private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
         {
-            ContentGrid.Children.Clear();
-            ContentGrid.Children.Add(aboutContent);
+            ContentFrame.Navigate(aboutContent);
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
