@@ -364,5 +364,14 @@ namespace Logos
                 Dialog.IsOpen = true;
             }
         }
+
+        private void ContentFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            Frame frame = sender as Frame;
+            if (frame.CanGoBack)
+            {
+                frame.RemoveBackEntry();
+            }
+        }
     }
 }

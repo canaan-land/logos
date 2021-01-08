@@ -125,7 +125,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Navigated="ContentFrame_Navigated"/>
             </Grid>
         </Grid>
     </materialDesign:DialogHost>
