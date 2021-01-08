@@ -147,20 +147,7 @@ namespace Logos
             {
                 string strJson = File.ReadAllText(strJsonPath);
                 Parameters sParams = JsonSerializer.Deserialize<Parameters>(strJson);
-                displayData.TextFont = sParams.Font;
-                displayData.TextFontSize = sParams.FontSize;
-                displayData.TextFontBold = sParams.FontBold;
-                displayData.TextFontItalic = sParams.FontItalic;
-                displayData.TextFontUnderline = sParams.FontUnderline;
-                displayData.TextFontColor = sParams.FontColor;
-                displayData.TextOutline = sParams.Outline;
-                displayData.TextOutlineColor = sParams.OutlineColor;
-                displayData.TextOutlineWidth = sParams.OutlineWidth;
-                displayData.AutoDetect = sParams.AutoDetect;
-                displayData.CECompare = sParams.CECompare;
-                displayData.ShowVerse = sParams.ShowVerse;
-                displayData.DrawPenColor = sParams.PenColor;
-                displayData.DrawPenWidth = sParams.PenWidth;
+                displayData.Params = sParams;
             }
 
             MenuItemText.IsSelected = true;

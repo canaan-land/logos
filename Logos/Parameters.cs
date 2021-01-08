@@ -226,6 +226,23 @@ namespace Logos
         public Parameters Params
         {
             get => parameters;
+            set
+            {
+                TextFont = value.Font;
+                TextFontSize = value.FontSize;
+                TextFontBold = value.FontBold;
+                TextFontItalic = value.FontItalic;
+                TextFontUnderline = value.FontUnderline;
+                TextFontColor = value.FontColor;
+                TextOutline = value.Outline;
+                TextOutlineColor = value.OutlineColor;
+                TextOutlineWidth = value.OutlineWidth;
+                AutoDetect = value.AutoDetect;
+                CECompare = value.CECompare;
+                ShowVerse = value.ShowVerse;
+                DrawPenColor = value.PenColor;
+                DrawPenWidth = value.PenWidth;
+            }
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
