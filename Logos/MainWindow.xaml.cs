@@ -150,7 +150,7 @@ namespace Logos
                 displayData.Params = sParams;
             }
 
-            MenuItemText.IsSelected = true;
+            MenuList.SelectedIndex = 0;
 
             clipboard.ClipboardChanged += ClipboardChanged;
         }
