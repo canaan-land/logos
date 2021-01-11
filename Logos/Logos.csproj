@@ -11,8 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Chivo-Medium.ttf" />
+    <None Remove="Resources\Chivo-Regular.ttf" />
     <None Remove="Resources\Clock.png" />
     <None Remove="Resources\GPS.png" />
+    <None Remove="Resources\logos.png" />
     <None Remove="Resources\pen.cur" />
   </ItemGroup>
 
@@ -27,8 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Chivo-Regular.ttf" />
     <Resource Include="Resources\Clock.png" />
     <Resource Include="Resources\GPS.png" />
+    <Resource Include="Resources\logos.png" />
     <Resource Include="Resources\pen.cur" />
   </ItemGroup>
 
