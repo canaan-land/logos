@@ -8,6 +8,7 @@
     <Authors>Joseph Chen</Authors>
     <Company>迦南地</Company>
     <Copyright>© 2020-2021 GPS刻影工作室</Copyright>
+    <ApplicationIcon>logos.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
