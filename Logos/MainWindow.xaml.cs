@@ -183,7 +183,7 @@ namespace Logos
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
         {
-            ListViewItem item = sender as ListViewItem;
+            Control item = sender as Control;
             Point point = Mouse.GetPosition(item);
             RadialGradientBrush radialGradient = new RadialGradientBrush()
             {
@@ -199,7 +199,7 @@ namespace Logos
 
         private void MenuItem_MouseLeave(object sender, MouseEventArgs e)
         {
-            (sender as ListViewItem).Background = null;
+            (sender as Control).Background = null;
         }
 
         private DisplayWindow displayWindow;
@@ -207,11 +207,10 @@ namespace Logos
         {
             if (displayWindow is null)
             {
-                displayWindow = new DisplayWindow()
+                displayWindow = new DisplayWindow(displayData)
                 {
                     DataContext = this
                 };
-                displayWindow.DisplayText.DataContext = displayData;
                 displayWindow.Show();
             }
             HotkeyManager.Current.AddOrReplace("TextEscape", Key.Escape, ModifierKeys.None, (o, e) => displayData.IsTextDisplay = false);

@@ -9,10 +9,11 @@ namespace Logos
     /// </summary>
     public partial class DisplayWindow : Window
     {
-        public DisplayWindow()
+        public DisplayWindow(object displayData)
         {
             InitializeComponent();
 
+            DisplayText.DataContext = displayData;
             DisplayText.RenderTransform = new TranslateTransform(prevX, prevY);
         }
 
