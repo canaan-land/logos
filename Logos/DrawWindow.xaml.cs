@@ -50,17 +50,7 @@ namespace Logos
         {
             savedPosition = e.GetPosition(sender as UIElement);
 
-            Line line = new Line();
-
-            DisplayData displayData = (DataContext as MainWindow).displayData;
-            line.Stroke = StringToSolidColorBrush(displayData.DrawPenColor);
-            line.StrokeThickness = displayData.DrawPenWidth;
-            line.StrokeStartLineCap = PenLineCap.Round;
-            line.StrokeEndLineCap = PenLineCap.Round;
-            line.X1 = savedPosition.Value.X;
-            line.Y1 = savedPosition.Value.Y;
-            line.X2 = savedPosition.Value.X;
-            line.Y2 = savedPosition.Value.Y;
+            Line line = GetLine(savedPosition.Value, savedPosition.Value);
 
             (sender as Panel).Children.Add(line);
         }
@@ -74,18 +64,8 @@ namespace Logos
         {
             if (savedPosition.HasValue)
             {
-                Line line = new Line();
-
-                DisplayData displayData = (DataContext as MainWindow).displayData;
-                line.Stroke = StringToSolidColorBrush(displayData.DrawPenColor);
-                line.StrokeThickness = displayData.DrawPenWidth;
-                line.StrokeStartLineCap = PenLineCap.Round;
-                line.StrokeEndLineCap = PenLineCap.Round;
-                line.X1 = savedPosition.Value.X;
-                line.Y1 = savedPosition.Value.Y;
                 Point currentPosition = e.GetPosition(sender as UIElement);
-                line.X2 = currentPosition.X;
-                line.Y2 = currentPosition.Y;
+                Line line = GetLine(savedPosition.Value, currentPosition);
 
                 savedPosition = currentPosition;
 
@@ -96,6 +76,23 @@ namespace Logos
         private static Brush StringToSolidColorBrush(string color)
         {
             return new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+        }
+
+        private Line GetLine(Point point1, Point point2)
+        {
+            Line line = new Line();
+
+            DisplayData displayData = (DataContext as MainWindow).displayData;
+            line.Stroke = StringToSolidColorBrush(displayData.DrawPenColor);
+            line.StrokeThickness = displayData.DrawPenWidth;
+            line.StrokeStartLineCap = PenLineCap.Round;
+            line.StrokeEndLineCap = PenLineCap.Round;
+            line.X1 = point1.X;
+            line.Y1 = point1.Y;
+            line.X2 = point2.X;
+            line.Y2 = point2.Y;
+
+            return line;
         }
     }
 }
