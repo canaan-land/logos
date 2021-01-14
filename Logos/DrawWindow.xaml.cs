@@ -18,10 +18,16 @@ namespace Logos
         {
             InitializeComponent();
 
+            float dpiX, dpiY;
+            using (var g = System.Drawing.Graphics.FromHwnd(IntPtr.Zero))
+            {
+                dpiX = g.DpiX;
+                dpiY = g.DpiY;
+            }
             System.Drawing.Bitmap screenshot = new System.Drawing.Bitmap(
-                Convert.ToInt32(SystemParameters.PrimaryScreenWidth),
-                Convert.ToInt32(SystemParameters.PrimaryScreenHeight));
-            using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(screenshot))
+                Convert.ToInt32(SystemParameters.PrimaryScreenWidth * dpiX / 96),
+                Convert.ToInt32(SystemParameters.PrimaryScreenHeight * dpiY / 96));
+            using (var g = System.Drawing.Graphics.FromImage(screenshot))
             {
                 g.CopyFromScreen(System.Drawing.Point.Empty, System.Drawing.Point.Empty, screenshot.Size);
             }
