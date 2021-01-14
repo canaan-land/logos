@@ -129,7 +129,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Navigated="ContentFrame_Navigated"/>
+                <ContentControl x:Name="SubContent"/>
             </Grid>
         </Grid>
     </materialDesign:DialogHost>

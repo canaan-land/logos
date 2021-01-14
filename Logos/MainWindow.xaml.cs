@@ -168,17 +168,17 @@ namespace Logos
 
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(new TextContent(displayData) { DataContext = this });
+            SubContent.Content = new TextContent(displayData) { DataContext = this };
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(new DrawContent(displayData) { DataContext = this });
+            SubContent.Content = new DrawContent(displayData) { DataContext = this };
         }
 
         private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(new AboutContent() { DataContext = this });
+            SubContent.Content = new AboutContent() { DataContext = this };
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
@@ -348,15 +348,6 @@ namespace Logos
             {
                 DialogText.Text = ex.Message;
                 Dialog.IsOpen = true;
-            }
-        }
-
-        private void ContentFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-            Frame frame = sender as Frame;
-            if (frame.CanGoBack)
-            {
-                frame.RemoveBackEntry();
             }
         }
     }
