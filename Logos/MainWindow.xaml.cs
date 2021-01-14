@@ -168,17 +168,17 @@ namespace Logos
 
         private void MenuItemText_Selected(object sender, RoutedEventArgs e)
         {
-            SubContent.Content = new TextContent(displayData) { DataContext = this };
+            ContentArea.Content = new TextContent(displayData) { DataContext = this };
         }
 
         private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
         {
-            SubContent.Content = new DrawContent(displayData) { DataContext = this };
+            ContentArea.Content = new DrawContent(displayData) { DataContext = this };
         }
 
         private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
         {
-            SubContent.Content = new AboutContent() { DataContext = this };
+            ContentArea.Content = new AboutContent() { DataContext = this };
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)

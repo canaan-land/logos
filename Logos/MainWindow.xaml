@@ -129,7 +129,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <ContentControl x:Name="SubContent"/>
+                <ContentControl x:Name="ContentArea"/>
             </Grid>
         </Grid>
     </materialDesign:DialogHost>
