@@ -116,7 +116,7 @@
                                           IsChecked="{Binding Path=TextOutline, Mode=TwoWay}">
                                     邊框
                                 </CheckBox>
-                                <StackPanel Orientation="Horizontal" IsEnabled="{Binding ElementName=OutlineCheckBox, Path=IsChecked}">
+                                <StackPanel Orientation="Horizontal" IsEnabled="{Binding Path=TextOutline, Mode=OneWay}">
                                     <ComboBox x:Name="OutlineColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                               materialDesign:HintAssist.Hint="邊框色彩"
                                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
