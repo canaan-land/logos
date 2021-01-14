@@ -42,6 +42,10 @@ namespace Logos
             if (savedPosition.HasValue)
             {
                 Point currentPosition = e.GetPosition(Parent as UIElement);
+                if (currentPosition.Equals(savedPosition.Value))
+                {
+                    return;
+                }
                 var control = sender as UIElement;
                 var transform = control.RenderTransform as TranslateTransform;
                 transform.X += currentPosition.X - savedPosition.Value.X;
