@@ -11,10 +11,12 @@ namespace Logos
     /// </summary>
     public partial class TextContent : UserControl
     {
-        public TextContent(object displayData)
+        public DisplayData MainDisplayData { get; set; }
+
+        public TextContent(DisplayData displayData)
         {
+            MainDisplayData = displayData;
             InitializeComponent();
-            SubPanel.DataContext = displayData;
         }
 
         private void FontSizeComboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -59,8 +61,6 @@ namespace Logos
 
         private void PasteTheWord(object parameter)
         {
-            DisplayData displayData = SubPanel.DataContext as DisplayData;
-
             try
             {
                 if (!Clipboard.ContainsText())
@@ -69,12 +69,12 @@ namespace Logos
                 }
 
                 string strText = Clipboard.GetText();
-                if (!Bible.Parse(ref strText, displayData))
+                if (!Bible.Parse(ref strText, MainDisplayData))
                 {
                     throw new Exception("theWord章節格式錯誤");
                 }
 
-                displayData.TextString = strText;
+                MainDisplayData.TextString = strText;
             }
             catch (Exception ex)
             {

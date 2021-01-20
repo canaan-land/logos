@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Logos
 {
@@ -7,13 +8,15 @@ namespace Logos
     /// </summary>
     public partial class DrawContent : UserControl
     {
-        public DrawContent(object displayData)
+        public DisplayData MainDisplayData { get; set; }
+
+        public DrawContent(DisplayData displayData)
         {
+            MainDisplayData = displayData;
             InitializeComponent();
-            SubPanel.DataContext = displayData;
         }
 
-        private void DrawButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void DrawButton_Click(object sender, RoutedEventArgs e)
         {
             (DataContext as MainWindow).StartDraw();
         }

@@ -16,14 +16,14 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
-                    <StackPanel x:Name="SubPanel" Orientation="Vertical">
+                    <StackPanel DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}" Orientation="Vertical">
                         <ToolBarTray>
                             <ToolBar Band="1" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False" Background="{x:Null}">
                                 <ComboBox x:Name="FontComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                           materialDesign:HintAssist.Hint="字型"
                                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True"
-                                          Text="{Binding Path=TextFont, Mode=TwoWay}" Margin="1,0,10,0">
+                                          Text="{Binding Path=MainDisplayData.TextFont, Mode=TwoWay}" Margin="1,0,10,0">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <VirtualizingStackPanel/>
@@ -51,7 +51,7 @@
                                 <ComboBox x:Name="FontSizeComboBox" FontSize="15" FontFamily="微軟正黑體" Width="80"
                                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           materialDesign:HintAssist.Hint="字型大小" IsEditable="True" Margin="1,0,10,0"
-                                          Text="{Binding Path=TextFontSize, Mode=TwoWay}" PreviewTextInput="FontSizeComboBox_PreviewTextInput">
+                                          Text="{Binding Path=MainDisplayData.TextFontSize, Mode=TwoWay}" PreviewTextInput="FontSizeComboBox_PreviewTextInput">
                                     <ComboBoxItem>8</ComboBoxItem>
                                     <ComboBoxItem>9</ComboBoxItem>
                                     <ComboBoxItem>10</ComboBoxItem>
@@ -72,13 +72,13 @@
                                 </ComboBox>
                                 <Separator Margin="6,6,6,6"/>
                                 <ListBox SelectionMode="Extended" Style="{StaticResource MaterialDesignToolToggleFlatListBox}">
-                                    <ListBoxItem x:Name="BoldCheckbox" IsSelected="{Binding Path=TextFontBold, Mode=TwoWay}" ToolTip="粗體">
+                                    <ListBoxItem x:Name="BoldCheckbox" IsSelected="{Binding Path=MainDisplayData.TextFontBold, Mode=TwoWay}" ToolTip="粗體">
                                         <materialDesign:PackIcon Kind="FormatBold"/>
                                     </ListBoxItem>
-                                    <ListBoxItem x:Name="ItalicCheckbox" IsSelected="{Binding Path=TextFontItalic, Mode=TwoWay}" ToolTip="斜體">
+                                    <ListBoxItem x:Name="ItalicCheckbox" IsSelected="{Binding Path=MainDisplayData.TextFontItalic, Mode=TwoWay}" ToolTip="斜體">
                                         <materialDesign:PackIcon Kind="FormatItalic"/>
                                     </ListBoxItem>
-                                    <ListBoxItem x:Name="UnderlineCheckbox" IsSelected="{Binding Path=TextFontUnderline, Mode=TwoWay}" ToolTip="底線">
+                                    <ListBoxItem x:Name="UnderlineCheckbox" IsSelected="{Binding Path=MainDisplayData.TextFontUnderline, Mode=TwoWay}" ToolTip="底線">
                                         <materialDesign:PackIcon Kind="FormatUnderline"/>
                                     </ListBoxItem>
                                 </ListBox>
@@ -87,7 +87,7 @@
                                           materialDesign:HintAssist.Hint="字型色彩"
                                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                           HorizontalAlignment="Left"
-                                          Text="{Binding Path=TextFontColor, Mode=TwoWay}">
+                                          Text="{Binding Path=MainDisplayData.TextFontColor, Mode=TwoWay}">
                                     <ComboBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <VirtualizingStackPanel/>
@@ -113,7 +113,7 @@
                             <ToolBar Band="2" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}" ClipToBounds="False" Background="{x:Null}">
                                 <CheckBox x:Name="OutlineCheckBox" Style="{StaticResource MahApps.Styles.CheckBox.Win10}"
                                           FontSize="15" FontFamily="微軟正黑體"
-                                          IsChecked="{Binding Path=TextOutline, Mode=TwoWay}">
+                                          IsChecked="{Binding Path=MainDisplayData.TextOutline, Mode=TwoWay}">
                                     邊框
                                 </CheckBox>
                                 <StackPanel Orientation="Horizontal" IsEnabled="{Binding Path=TextOutline, Mode=OneWay}">
@@ -121,7 +121,7 @@
                                               materialDesign:HintAssist.Hint="邊框色彩"
                                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                               HorizontalAlignment="Left" Margin="1,0,15,0"
-                                              Text="{Binding Path=TextOutlineColor, Mode=TwoWay}">
+                                              Text="{Binding Path=MainDisplayData.TextOutlineColor, Mode=TwoWay}">
                                         <ComboBox.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <VirtualizingStackPanel/>
@@ -181,7 +181,7 @@
                                                 mah:SliderHelper.ChangeValueBy="SmallChange"
                                                 mah:SliderHelper.EnableMouseWheel="MouseHover"
                                                 Width="200" TickFrequency="1" TickPlacement="BottomRight"
-                                                Value="{Binding Path=TextOutlineWidth, Mode=TwoWay}"/>
+                                                Value="{Binding Path=MainDisplayData.TextOutlineWidth, Mode=TwoWay}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </ToolBar>
@@ -194,30 +194,29 @@
                                      TextDecorations="{Binding ElementName=UnderlineCheckbox, Path=IsSelected, Converter={local:BoolToUnderlineConverter}, Mode=OneWay}"
                                      materialDesign:HintAssist.Hint="顯示文字" Width="350" VerticalAlignment="Bottom"
                                      Foreground="{StaticResource MaterialDesignDarkForeground}"
-                                     Text="{Binding Path=TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
+                                     Text="{Binding Path=MainDisplayData.TextString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="0,0,10,0" KeyDown="StringTextBox_KeyDown"/>
                             <ToggleButton x:Name="DisplayButton" Style="{StaticResource MahApps.Styles.ToggleButton.Circle}"
                                           Width="50" Height="50" Margin="0,0,10,0"
                                           VerticalAlignment="Bottom" ToolTip="顯示/隱藏"
-                                          IsChecked="{Binding Path=IsTextDisplay, Mode=TwoWay}"
+                                          IsChecked="{Binding Path=MainDisplayData.IsTextDisplay, Mode=TwoWay}"
                                           Checked="DisplayButton_Checked" Unchecked="DisplayButton_Unchecked">
                                 <materialDesign:PackIcon Kind="MonitorStar" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </ToggleButton>
                             <Button x:Name="PasteButton" Style="{StaticResource MahApps.Styles.Button.Circle}"
                                     Width="50" Height="50" Margin="0,0,10,0"
-                                    VerticalAlignment="Bottom" ToolTip="貼上theWord章節" Command="{Binding Path=PasteCommand}"
-                                    DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
+                                    VerticalAlignment="Bottom" ToolTip="貼上theWord章節" Command="{Binding Path=PasteCommand}">
                                 <materialDesign:PackIcon Kind="ContentPaste" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Button>
                         </StackPanel>
                         <mah:ToggleSwitch x:Name="AutoDetectToggle" Margin="0,0,0,15"
                                           Header="自動偵測剪貼簿中的聖經章節" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=AutoDetect}"/>
+                                          IsOn="{Binding Path=MainDisplayData.AutoDetect}"/>
                         <mah:ToggleSwitch x:Name="CECompareToggle" Margin="0,0,0,15"
                                           Header="聖經卷名中英對照" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=CECompare}"/>
+                                          IsOn="{Binding Path=MainDisplayData.CECompare}"/>
                         <mah:ToggleSwitch x:Name="ShowVerseToggle" Margin="0,0,0,0"
                                           Header="顯示聖經節數" OnContent="開啟" OffContent="關閉"  
-                                          IsOn="{Binding Path=ShowVerse}"/>
+                                          IsOn="{Binding Path=MainDisplayData.ShowVerse}"/>
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
