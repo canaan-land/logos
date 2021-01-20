@@ -1,6 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Controls;
 
 namespace Logos
 {
@@ -9,25 +7,9 @@ namespace Logos
     /// </summary>
     public partial class DrawContent : UserControl
     {
-        public DisplayData MainDisplayData { get; set; }
-
-        public DrawContent(DisplayData displayData)
+        public DrawContent()
         {
-            MainDisplayData = displayData;
             InitializeComponent();
-        }
-
-        public ICommand DrawCommand
-        {
-            get
-            {
-                return new RelayCommand(StartDraw);
-            }
-        }
-
-        private void StartDraw()
-        {
-            (DataContext as MainWindow).StartDraw();
         }
     }
 }

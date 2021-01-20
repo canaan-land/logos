@@ -1,6 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,11 +10,8 @@ namespace Logos
     /// </summary>
     public partial class TextContent : UserControl
     {
-        public DisplayData MainDisplayData { get; set; }
-
-        public TextContent(DisplayData displayData)
+        public TextContent()
         {
-            MainDisplayData = displayData;
             InitializeComponent();
         }
 
@@ -45,41 +40,10 @@ namespace Logos
         {
             if (e.Key.Equals(Key.Enter))
             {
-                if (!(DataContext as MainWindow).displayData.IsTextDisplay)
+                if (!(DataContext as MainWindow).MainDisplayData.IsTextDisplay)
                 {
                     DisplayButton.IsChecked = true;
                 }
-            }
-        }
-
-        public ICommand PasteCommand
-        {
-            get
-            {
-                return new RelayCommand(PasteTheWord);
-            }
-        }
-
-        private void PasteTheWord()
-        {
-            try
-            {
-                if (!Clipboard.ContainsText())
-                {
-                    throw new Exception("不正確的剪貼簿內容型別");
-                }
-
-                string strText = Clipboard.GetText();
-                if (!Bible.Parse(ref strText, MainDisplayData))
-                {
-                    throw new Exception("theWord章節格式錯誤");
-                }
-
-                MainDisplayData.TextString = strText;
-            }
-            catch (Exception ex)
-            {
-                (DataContext as MainWindow).ShowDialog(ex.Message);
             }
         }
     }

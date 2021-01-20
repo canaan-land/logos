@@ -16,7 +16,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
-                    <StackPanel DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}" Orientation="Vertical">
+                    <StackPanel Orientation="Vertical">
                         <ComboBox x:Name="DrawColorComboBox" FontSize="15" FontFamily="微軟正黑體" Width="150"
                                   Foreground="{StaticResource MaterialDesignDarkForeground}"
                                   materialDesign:HintAssist.Hint="筆刷色彩"

@@ -1,4 +1,5 @@
-﻿using NHotkey.Wpf;
+﻿using GalaSoft.MvvmLight.Command;
+using NHotkey.Wpf;
 using System;
 using System.IO;
 using System.Linq;
@@ -45,9 +46,14 @@ namespace Logos
             }
         }
 
-        public readonly DisplayData displayData = new DisplayData();
+        private readonly DisplayData displayData = new DisplayData();
         private readonly SharpClipboard clipboard = new SharpClipboard();
         private readonly string strJsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LOGOS.json");
+
+        public DisplayData MainDisplayData
+        {
+            get { return displayData; }
+        }
 
         public MainWindow()
         {
@@ -65,7 +71,7 @@ namespace Logos
             {
                 string strJson = File.ReadAllText(strJsonPath);
                 Parameters sParams = JsonSerializer.Deserialize<Parameters>(strJson);
-                displayData.Params = sParams;
+                MainDisplayData.Params = sParams;
             }
 
             MenuList.SelectedIndex = 0;
@@ -84,19 +90,18 @@ namespace Logos
             }));
         }
 
-        private void MenuItemText_Selected(object sender, RoutedEventArgs e)
+        private void MenuList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ContentArea.Content = new TextContent(displayData) { DataContext = this };
-        }
+            var list = sender as ListView;
 
-        private void MenuItemDraw_Selected(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new DrawContent(displayData) { DataContext = this };
-        }
-
-        private void MenuItemAbout_Selected(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new AboutContent() { DataContext = this };
+            ContentArea.Content =
+                list.SelectedIndex switch
+                {
+                    0 => new TextContent() { DataContext = this },
+                    1 => new DrawContent() { DataContext = this },
+                    2 => new AboutContent() { DataContext = this },
+                    _ => null
+                };
         }
 
         private void MenuItem_MouseMove(object sender, MouseEventArgs e)
@@ -125,13 +130,13 @@ namespace Logos
         {
             if (displayWindow is null)
             {
-                displayWindow = new DisplayWindow(displayData)
+                displayWindow = new DisplayWindow()
                 {
                     DataContext = this
                 };
                 displayWindow.Show();
             }
-            HotkeyManager.Current.AddOrReplace("TextEscape", Key.Escape, ModifierKeys.None, (o, e) => displayData.IsTextDisplay = false);
+            HotkeyManager.Current.AddOrReplace("TextEscape", Key.Escape, ModifierKeys.None, (o, e) => MainDisplayData.IsTextDisplay = false);
         }
 
         public void Undisplay()
@@ -144,8 +149,47 @@ namespace Logos
             }
         }
 
+        public ICommand PasteCommand
+        {
+            get
+            {
+                return new RelayCommand(PasteTheWord);
+            }
+        }
+
+        private void PasteTheWord()
+        {
+            try
+            {
+                if (!Clipboard.ContainsText())
+                {
+                    throw new Exception("不正確的剪貼簿內容型別");
+                }
+
+                string strText = Clipboard.GetText();
+                if (!Bible.Parse(ref strText, MainDisplayData))
+                {
+                    throw new Exception("theWord章節格式錯誤");
+                }
+
+                MainDisplayData.TextString = strText;
+            }
+            catch (Exception ex)
+            {
+                ShowDialog(ex.Message);
+            }
+        }
+
+        public ICommand DrawCommand
+        {
+            get
+            {
+                return new RelayCommand(StartDraw);
+            }
+        }
+
         private DrawWindow drawWindow;
-        public void StartDraw()
+        private void StartDraw()
         {
             WindowState = WindowState.Minimized;
             if (drawWindow is null)
@@ -175,33 +219,33 @@ namespace Logos
             Undisplay();
             StopDraw();
 
-            string strJson = JsonSerializer.Serialize(displayData.Params);
+            string strJson = JsonSerializer.Serialize(MainDisplayData.Params);
             File.WriteAllText(strJsonPath, strJson);
         }
 
         private void ClipboardChanged(object sender, SharpClipboard.ClipboardChangedEventArgs e)
         {
-            if (displayData.AutoDetect)
+            if (MainDisplayData.AutoDetect)
             {
                 if (e.ContentType.Equals(SharpClipboard.ContentTypes.Text))
                 {
                     string strText = clipboard.ClipboardText;
-                    if (Bible.Parse(ref strText, displayData))
+                    if (Bible.Parse(ref strText, MainDisplayData))
                     {
-                        if (!string.Equals(displayData.TextString, strText))
+                        if (!string.Equals(MainDisplayData.TextString, strText))
                         {
-                            displayData.TextString = strText;
+                            MainDisplayData.TextString = strText;
                         }
-                        if (!displayData.IsTextDisplay)
+                        if (!MainDisplayData.IsTextDisplay)
                         {
-                            displayData.IsTextDisplay = true;
+                            MainDisplayData.IsTextDisplay = true;
                         }
                     }
                 }
             }
         }
 
-        public void ShowDialog(string text)
+        private void ShowDialog(string text)
         {
             DialogText.Text = text;
             Dialog.IsOpen = true;

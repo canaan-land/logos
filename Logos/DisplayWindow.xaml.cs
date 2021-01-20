@@ -9,11 +9,10 @@ namespace Logos
     /// </summary>
     public partial class DisplayWindow : Window
     {
-        public DisplayWindow(object displayData)
+        public DisplayWindow()
         {
             InitializeComponent();
 
-            DisplayText.DataContext = displayData;
             DisplayText.RenderTransform = new TranslateTransform(prevX, prevY);
         }
 
@@ -56,13 +55,13 @@ namespace Logos
 
         private void DisplayText_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ((sender as FrameworkElement).DataContext as DisplayData).IsTextDisplay = false;
+            (DataContext as MainWindow).MainDisplayData.IsTextDisplay = false;
         }
 
         private void DisplayText_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var control = sender as FrameworkElement;
-            var displayData = control.DataContext as DisplayData;
+            var displayData = (DataContext as MainWindow).MainDisplayData;
             if (e.Delta > 0 || (e.Delta < 0 && displayData.TextFontSize > 10))
             {
                 Point pointOld = e.GetPosition(control);

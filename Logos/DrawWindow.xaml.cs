@@ -88,7 +88,7 @@ namespace Logos
         {
             Line line = new Line();
 
-            DisplayData displayData = (DataContext as MainWindow).displayData;
+            DisplayData displayData = (DataContext as MainWindow).MainDisplayData;
             line.Stroke = StringToSolidColorBrush(displayData.DrawPenColor);
             line.StrokeThickness = displayData.DrawPenWidth;
             line.StrokeStartLineCap = PenLineCap.Round;
