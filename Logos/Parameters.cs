@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Linq;
 using System.Text.Json.Serialization;
 using System.Windows.Media;
 
@@ -38,13 +36,11 @@ namespace Logos
         public int PenWidth { get; set; }
     }
 
-    public class DisplayData : INotifyPropertyChanged
+    public class DisplayData : ViewModelBase
     {
         private string textString;
         private bool isTextDisplay;
         private readonly Parameters parameters = new Parameters();
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public DisplayData()
         {
@@ -244,11 +240,6 @@ namespace Logos
                 DrawPenColor = value.PenColor;
                 DrawPenWidth = value.PenWidth;
             }
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         private static string GetColorName(Color color)
