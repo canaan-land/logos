@@ -110,7 +110,7 @@ namespace Logos
             Point point = Mouse.GetPosition(item);
             RadialGradientBrush radialGradient = new RadialGradientBrush()
             {
-                GradientOrigin = new Point(point.X / MenuItemAbout.ActualWidth, point.Y / MenuItemAbout.ActualHeight),
+                GradientOrigin = new Point(point.X / item.ActualWidth, point.Y / item.ActualHeight),
                 RadiusX = 1.0,
                 RadiusY = 1.0
             };
