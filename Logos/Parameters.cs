@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using GalaSoft.MvvmLight;
+using System.Linq;
 using System.Text.Json.Serialization;
 using System.Windows.Media;
 
@@ -66,7 +67,7 @@ namespace Logos
             set
             {
                 textString = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -76,7 +77,7 @@ namespace Logos
             set
             {
                 isTextDisplay = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -86,7 +87,7 @@ namespace Logos
             set
             {
                 parameters.Font = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -96,7 +97,7 @@ namespace Logos
             set
             {
                 parameters.FontSize = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -106,7 +107,7 @@ namespace Logos
             set
             {
                 parameters.FontBold = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -116,7 +117,7 @@ namespace Logos
             set
             {
                 parameters.FontItalic = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -126,7 +127,7 @@ namespace Logos
             set
             {
                 parameters.FontUnderline = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -136,7 +137,7 @@ namespace Logos
             set
             {
                 parameters.FontColor = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -146,7 +147,7 @@ namespace Logos
             set
             {
                 parameters.Outline = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -156,7 +157,7 @@ namespace Logos
             set
             {
                 parameters.OutlineColor = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -166,7 +167,7 @@ namespace Logos
             set
             {
                 parameters.OutlineWidth = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -176,7 +177,7 @@ namespace Logos
             set
             {
                 parameters.AutoDetect = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -186,7 +187,7 @@ namespace Logos
             set
             {
                 parameters.CECompare = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -196,7 +197,7 @@ namespace Logos
             set
             {
                 parameters.ShowVerse = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -206,7 +207,7 @@ namespace Logos
             set
             {
                 parameters.PenColor = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -216,7 +217,7 @@ namespace Logos
             set
             {
                 parameters.PenWidth = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 

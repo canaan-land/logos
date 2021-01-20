@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -55,11 +56,11 @@ namespace Logos
         {
             get
             {
-                return new ActionCommand(PasteTheWord);
+                return new RelayCommand(PasteTheWord);
             }
         }
 
-        private void PasteTheWord(object parameter)
+        private void PasteTheWord()
         {
             try
             {

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using GalaSoft.MvvmLight.Command;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Logos
@@ -20,11 +21,11 @@ namespace Logos
         {
             get
             {
-                return new ActionCommand(StartDraw);
+                return new RelayCommand(StartDraw);
             }
         }
 
-        private void StartDraw(object parameter)
+        private void StartDraw()
         {
             (DataContext as MainWindow).StartDraw();
         }
