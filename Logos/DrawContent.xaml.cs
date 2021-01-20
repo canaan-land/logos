@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Logos
 {
@@ -16,7 +17,15 @@ namespace Logos
             InitializeComponent();
         }
 
-        private void DrawButton_Click(object sender, RoutedEventArgs e)
+        public ICommand DrawCommand
+        {
+            get
+            {
+                return new ActionCommand(StartDraw);
+            }
+        }
+
+        private void StartDraw(object parameter)
         {
             (DataContext as MainWindow).StartDraw();
         }

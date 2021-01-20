@@ -65,7 +65,7 @@
                         </Grid>
                         <Button x:Name="DrawButton" Content="開始繪圖" FontSize="15" FontFamily="微軟正黑體"
                                 Width="100" HorizontalAlignment="Left"
-                                Style="{StaticResource MaterialDesignFlatDarkBgButton}" Click="DrawButton_Click"
+                                Style="{StaticResource MaterialDesignFlatDarkBgButton}" Command="{Binding Path=DrawCommand}"
                                 IsEnabled="{Binding Path=MainDisplayData.IsTextDisplay, Converter={StaticResource NotConverter}}" Cursor="Hand"/>
                     </StackPanel>                    
                 </ScrollViewer>
