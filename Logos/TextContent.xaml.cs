@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -48,9 +49,37 @@ namespace Logos
             }
         }
 
-        private void PasteButton_Click(object sender, RoutedEventArgs e)
+        public ICommand PasteCommand
         {
-            (DataContext as MainWindow).PasteTheWord();
+            get
+            {
+                return new ActionCommand(PasteTheWord);
+            }
+        }
+
+        private void PasteTheWord(object parameter)
+        {
+            DisplayData displayData = SubPanel.DataContext as DisplayData;
+
+            try
+            {
+                if (!Clipboard.ContainsText())
+                {
+                    throw new Exception("不正確的剪貼簿內容型別");
+                }
+
+                string strText = Clipboard.GetText();
+                if (!Bible.Parse(ref strText, displayData))
+                {
+                    throw new Exception("theWord章節格式錯誤");
+                }
+
+                displayData.TextString = strText;
+            }
+            catch (Exception ex)
+            {
+                (DataContext as MainWindow).ShowDialog(ex.Message);
+            }
         }
     }
 }
