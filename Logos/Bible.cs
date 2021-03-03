@@ -91,14 +91,14 @@ namespace Logos
         {
             string strToParse = strText.TrimStart(' ', '(');
 
-            string bookTC = new string(strToParse.TakeWhile(c => !char.IsWhiteSpace(c)).ToArray());
+            string bookTC = new(strToParse.TakeWhile(c => !char.IsWhiteSpace(c)).ToArray());
             BookStruct sBook = Array.Find(BookList, b => b.TChinese.Equals(bookTC));
             if (sBook.TChinese is null)
             {
                 return false;
             }
 
-            Regex regex = new Regex(@"^.+ \d+:\d+");
+            Regex regex = new(@"^.+ \d+:\d+");
             Match match = regex.Match(strToParse);
             if (!match.Success)
             {

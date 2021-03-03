@@ -24,7 +24,7 @@ namespace Logos
                 dpiX = g.DpiX;
                 dpiY = g.DpiY;
             }
-            System.Drawing.Bitmap screenshot = new System.Drawing.Bitmap(
+            System.Drawing.Bitmap screenshot = new(
                 Convert.ToInt32(SystemParameters.PrimaryScreenWidth * dpiX / 96),
                 Convert.ToInt32(SystemParameters.PrimaryScreenHeight * dpiY / 96));
             using (var g = System.Drawing.Graphics.FromImage(screenshot))
@@ -86,7 +86,7 @@ namespace Logos
 
         private Line GetLine(Point point1, Point point2)
         {
-            Line line = new Line();
+            Line line = new();
 
             DisplayData displayData = (DataContext as MainWindow).MainDisplayData;
             line.Stroke = StringToSolidColorBrush(displayData.DrawPenColor);

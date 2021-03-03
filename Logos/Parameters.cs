@@ -41,7 +41,7 @@ namespace Logos
     {
         private string textString;
         private bool isTextDisplay;
-        private readonly Parameters parameters = new Parameters();
+        private readonly Parameters parameters = new();
 
         public DisplayData()
         {

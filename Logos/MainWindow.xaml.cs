@@ -46,8 +46,8 @@ namespace Logos
             }
         }
 
-        private readonly DisplayData displayData = new DisplayData();
-        private readonly SharpClipboard clipboard = new SharpClipboard();
+        private readonly DisplayData displayData = new();
+        private readonly SharpClipboard clipboard = new();
         private readonly string strJsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LOGOS.json");
 
         public DisplayData MainDisplayData
@@ -63,7 +63,7 @@ namespace Logos
 
             RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.Fant);
 
-            Timer timer = new Timer(100);
+            Timer timer = new(100);
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
 
@@ -108,7 +108,7 @@ namespace Logos
         {
             Control item = sender as Control;
             Point point = Mouse.GetPosition(item);
-            RadialGradientBrush radialGradient = new RadialGradientBrush()
+            RadialGradientBrush radialGradient = new()
             {
                 GradientOrigin = new Point(point.X / item.ActualWidth, point.Y / item.ActualHeight),
                 RadiusX = 1.0,

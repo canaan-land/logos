@@ -69,7 +69,7 @@ namespace Logos
                 double ratioY = pointOld.Y / control.ActualHeight;
                 displayData.TextFontSize += e.Delta / 120 * 6;
                 control.UpdateLayout();
-                Point pointNew = new Point(
+                Point pointNew = new(
                         control.ActualWidth * ratioX, control.ActualHeight * ratioY);
                 Vector pointDiff = Point.Subtract(pointNew, pointOld);
                 var transform = control.RenderTransform as TranslateTransform;
