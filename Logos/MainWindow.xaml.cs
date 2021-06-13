@@ -229,7 +229,7 @@ namespace Logos
             {
                 if (e.ContentType.Equals(SharpClipboard.ContentTypes.Text))
                 {
-                    string strText = clipboard.ClipboardText;
+                    string strText = Clipboard.GetText();
                     if (Bible.Parse(ref strText, MainDisplayData))
                     {
                         if (!string.Equals(MainDisplayData.TextString, strText))
@@ -240,6 +240,7 @@ namespace Logos
                         {
                             MainDisplayData.IsTextDisplay = true;
                         }
+                        Clipboard.Clear();
                     }
                 }
             }
