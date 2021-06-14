@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Logos"
         Height="618" Width="1000"
         ExtendViewIntoTitleBar="True"
         WindowStartupLocation="CenterScreen" MinWidth="1000" MinHeight="618" AllowsTransparency="False" WindowStyle="None"
