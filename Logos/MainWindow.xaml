@@ -12,7 +12,7 @@
         ExtendViewIntoTitleBar="True"
         WindowStartupLocation="CenterScreen" MinWidth="1000" MinHeight="618" AllowsTransparency="False" WindowStyle="None"
         DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}"
-        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf" Closing="MainWindow_Closing">
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf" Closing="MainWindow_Closing" ResizeMode="NoResize">
     <fw:AcrylicWindow.Resources>
         <Style x:Key="ChivoFont">
             <Setter Property="TextElement.FontFamily" Value="Resources/#Chivo"/>
