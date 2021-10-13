@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentWPF" Version="0.10.2" />
-    <PackageReference Include="MahApps.Metro" Version="2.4.7" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.8" />
     <PackageReference Include="MaterialDesignThemes" Version="4.2.1" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="NHotkey.Wpf" Version="2.1.0" />
