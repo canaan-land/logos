@@ -113,7 +113,7 @@ namespace Logos
 
             if (!displayData.ShowVerse)
             {
-                strToParse = strToParse.Substring(0, strToParse.IndexOf(':'));
+                strToParse = strToParse[..strToParse.IndexOf(':')];
             }
 
             if (sBook.Alternative is not null)
