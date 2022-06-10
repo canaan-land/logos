@@ -81,13 +81,13 @@ namespace Logos
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Dispatcher.Invoke(DispatcherPriority.Normal, (Action)(() =>
+            Dispatcher.Invoke(DispatcherPriority.Normal, () =>
             {
                 DateTime dateTime = DateTime.Now;
                 SecondHand.Angle = dateTime.Second * 6 + 6 * dateTime.Millisecond / 1000.0;
                 MinuteHand.Angle = dateTime.Minute * 6 + dateTime.Second * 0.1;
                 HourHand.Angle = dateTime.Hour * 30 + dateTime.Minute * 0.5;
-            }));
+            });
         }
 
         private void MenuList_SelectionChanged(object sender, SelectionChangedEventArgs e)
