@@ -25,7 +25,7 @@ namespace Logos
         {
             get
             {
-                StackPanel sp = MenuItemText.Content as StackPanel;
+                var sp = MenuItemText.Content as StackPanel;
                 return sp.Children.OfType<TextBlock>().First().Text;
             }
         }
@@ -33,7 +33,7 @@ namespace Logos
         {
             get
             {
-                StackPanel sp = MenuItemDraw.Content as StackPanel;
+                var sp = MenuItemDraw.Content as StackPanel;
                 return sp.Children.OfType<TextBlock>().First().Text;
             }
         }
@@ -41,7 +41,7 @@ namespace Logos
         {
             get
             {
-                StackPanel sp = MenuItemAbout.Content as StackPanel;
+                var sp = MenuItemAbout.Content as StackPanel;
                 return sp.Children.OfType<TextBlock>().First().Text;
             }
         }
@@ -50,10 +50,7 @@ namespace Logos
         private readonly SharpClipboard clipboard = new();
         private readonly string strJsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LOGOS.json");
 
-        public DisplayData MainDisplayData
-        {
-            get { return displayData; }
-        }
+        public DisplayData MainDisplayData => displayData;
 
         public MainWindow()
         {
@@ -149,13 +146,7 @@ namespace Logos
             }
         }
 
-        public ICommand PasteCommand
-        {
-            get
-            {
-                return new RelayCommand(PasteTheWord);
-            }
-        }
+        public ICommand PasteCommand => new RelayCommand(PasteTheWord);
 
         private void PasteTheWord()
         {
@@ -180,13 +171,7 @@ namespace Logos
             }
         }
 
-        public ICommand DrawCommand
-        {
-            get
-            {
-                return new RelayCommand(StartDraw);
-            }
-        }
+        public ICommand DrawCommand => new RelayCommand(StartDraw);
 
         private DrawWindow drawWindow;
         private void StartDraw()
