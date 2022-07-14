@@ -105,28 +105,6 @@
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
-                    <Grid Width="200" Height="200" DockPanel.Dock="Bottom" Margin="0,0,0,10"
-                          HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <Grid.Background>
-                            <ImageBrush ImageSource="Resources/Clock.png" Stretch="Uniform"/>
-                        </Grid.Background>
-                        <Rectangle Margin="97,0,97,100" Height="55" VerticalAlignment="Bottom" Fill="Black">
-                            <Rectangle.RenderTransform>
-                                <RotateTransform x:Name="HourHand" CenterX="3" CenterY="55"/>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Margin="98,0,98,100" Height="90" VerticalAlignment="Bottom" Fill="Black">
-                            <Rectangle.RenderTransform>
-                                <RotateTransform x:Name="MinuteHand" CenterX="2" CenterY="90"/>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Margin="99.5,0,99.5,80" Height="110" VerticalAlignment="Bottom" Fill="Red">
-                            <Rectangle.RenderTransform>
-                                <RotateTransform x:Name="SecondHand" CenterX="0.5" CenterY="90"/>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Gold"/>
-                    </Grid>
                 </DockPanel>
             </Grid>
 

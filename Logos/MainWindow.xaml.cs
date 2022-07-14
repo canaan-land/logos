@@ -4,12 +4,10 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Threading;
 using WK.Libraries.SharpClipboardNS;
 
 namespace Logos
@@ -58,12 +56,6 @@ namespace Logos
 
             InitializeComponent();
 
-            RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.Fant);
-
-            Timer timer = new(100);
-            timer.Elapsed += Timer_Elapsed;
-            timer.Enabled = true;
-
             if (File.Exists(strJsonPath))
             {
                 string strJson = File.ReadAllText(strJsonPath);
@@ -74,17 +66,6 @@ namespace Logos
             MenuList.SelectedIndex = 0;
 
             clipboard.ClipboardChanged += ClipboardChanged;
-        }
-
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Dispatcher.Invoke(DispatcherPriority.Normal, () =>
-            {
-                DateTime dateTime = DateTime.Now;
-                SecondHand.Angle = dateTime.Second * 6 + 6 * dateTime.Millisecond / 1000.0;
-                MinuteHand.Angle = dateTime.Minute * 6 + dateTime.Second * 0.1;
-                HourHand.Angle = dateTime.Hour * 30 + dateTime.Minute * 0.5;
-            });
         }
 
         private void MenuList_SelectionChanged(object sender, SelectionChangedEventArgs e)
