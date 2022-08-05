@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -158,6 +159,7 @@ namespace Logos
         private void StartDraw()
         {
             WindowState = WindowState.Minimized;
+            Thread.Sleep(500);
             if (drawWindow is null)
             {
                 drawWindow = new DrawWindow()
