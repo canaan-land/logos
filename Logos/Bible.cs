@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Logos
 {
-    public class Bible
+    public partial class Bible
     {
         private readonly struct BookStruct
         {
@@ -98,7 +98,7 @@ namespace Logos
                 return false;
             }
 
-            Regex regex = new(@"^.+ \d+:\d+");
+            Regex regex = regexBible();
             Match match = regex.Match(strToParse);
             if (!match.Success)
             {
@@ -130,5 +130,8 @@ namespace Logos
 
             return true;
         }
+
+        [GeneratedRegex("^.+ \\d+:\\d+")]
+        private static partial Regex regexBible();
     }
 }
