@@ -17,7 +17,7 @@ namespace Logos
 
         private void FontSizeComboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new("[^0-9]+");
+            Regex regex = regexFontSize();
             e.Handled = regex.IsMatch(e.Text);
         }
 
@@ -46,5 +46,8 @@ namespace Logos
                 }
             }
         }
+
+        [GeneratedRegex("[^0-9]+")]
+        private static partial Regex regexFontSize();
     }
 }
