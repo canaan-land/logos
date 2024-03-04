@@ -75,7 +75,7 @@
                 <DockPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,20,0,20">
                         <Image Source="Resources/logos.png" Width="60" Height="60" Stretch="UniformToFill" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding Path=ProductName}" Foreground="{StaticResource MaterialDesignDarkForeground}"
+                        <TextBlock Text="{Binding Path=ProductName}" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}"
                                    FontSize="40" Margin="10" VerticalAlignment="Center" Style="{StaticResource ChivoFont}"/>
                     </StackPanel>
                     <ListView ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" x:Name ="MenuList" FontSize="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top" Background="{x:Null}"
@@ -84,24 +84,24 @@
                             <StackPanel Orientation="Horizontal">
                                 <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                            Visibility="{Binding ElementName=MenuItemText, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                                <materialDesign:PackIcon Kind="FormatText" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="10,15,15,15"/>
-                                <TextBlock Text="文字" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesignDarkForeground}" VerticalAlignment="Center"/>
+                                <materialDesign:PackIcon Kind="FormatText" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}" Margin="10,15,15,15"/>
+                                <TextBlock Text="文字" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}" VerticalAlignment="Center"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="MenuItemDraw" Padding="1" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                             <StackPanel Orientation="Horizontal">
                                 <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                            Visibility="{Binding ElementName=MenuItemDraw, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                                <materialDesign:PackIcon Kind="Draw" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="10,15,15,15"/>
-                                <TextBlock Text="繪圖" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesignDarkForeground}" VerticalAlignment="Center"/>
+                                <materialDesign:PackIcon Kind="Draw" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}" Margin="10,15,15,15"/>
+                                <TextBlock Text="繪圖" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}" VerticalAlignment="Center"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="MenuItemAbout" Padding="1" MouseMove="MenuItem_MouseMove" MouseLeave="MenuItem_MouseLeave">
                             <StackPanel Orientation="Horizontal">
                                 <Rectangle Width="5" Height="25" VerticalAlignment="Center" Fill="SteelBlue"
                                            Visibility="{Binding ElementName=MenuItemAbout, Path=IsSelected, Converter={local:BoolToVisibilityConverter FalseValue=Hidden}, Mode=OneWay}"/>
-                                <materialDesign:PackIcon Kind="AboutOutline" Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="10,15,15,15"/>
-                                <TextBlock Text="關於" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesignDarkForeground}" VerticalAlignment="Center"/>
+                                <materialDesign:PackIcon Kind="AboutOutline" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}" Margin="10,15,15,15"/>
+                                <TextBlock Text="關於" FontFamily="微軟正黑體" Foreground="{StaticResource MaterialDesign.Brush.Badged.DarkForeground}" VerticalAlignment="Center"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
