@@ -183,7 +183,7 @@ namespace Logos
         public OutlinedTextBlock()
         {
             UpdatePen();
-            TextDecorations = new TextDecorationCollection();
+            TextDecorations = [];
         }
 
         protected override void OnRender(DrawingContext drawingContext)

@@ -34,7 +34,7 @@ namespace Logos
             DrawPanel.Background = CreateBrushFromBitmap(screenshot);
         }
 
-        private static Brush CreateBrushFromBitmap(System.Drawing.Bitmap bitmap)
+        private static ImageBrush CreateBrushFromBitmap(System.Drawing.Bitmap bitmap)
         {
             var source = Imaging.CreateBitmapSourceFromHBitmap(
                 bitmap.GetHbitmap(),
@@ -79,7 +79,7 @@ namespace Logos
             }
         }
 
-        private static Brush StringToSolidColorBrush(string color)
+        private static SolidColorBrush StringToSolidColorBrush(string color)
         {
             return new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
         }
