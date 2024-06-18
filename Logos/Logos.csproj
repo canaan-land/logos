@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>4.4.0</Version>
+    <Version>4.5.0</Version>
     <Authors>Joseph Chen</Authors>
     <Company>迦南地</Company>
     <Copyright>© 2020-2022 GPS刻影工作室</Copyright>
