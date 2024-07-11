@@ -3,6 +3,7 @@ using NHotkey.Wpf;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
 using System.Threading;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace Logos
     {
         public static string ProductName => Application.ResourceAssembly.GetName().Name;
         public static string ProductVersion => Application.ResourceAssembly.GetName().Version.ToString(3);
+        public static string ProductCopyright => Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
         public string MenuItemTextName
         {
             get
