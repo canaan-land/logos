@@ -134,25 +134,23 @@ namespace Logos
 
         private void PasteTheWord()
         {
-            try
+            do
             {
                 if (!Clipboard.ContainsText())
                 {
-                    throw new Exception("不正確的剪貼簿內容型別");
+                    ShowDialog("不正確的剪貼簿內容型別");
+                    break;
                 }
 
                 string strText = Clipboard.GetText();
                 if (!Bible.Parse(ref strText, MainDisplayData))
                 {
-                    throw new Exception("theWord章節格式錯誤");
+                    ShowDialog("theWord章節格式錯誤");
+                    break;
                 }
 
                 MainDisplayData.TextString = strText;
-            }
-            catch (Exception ex)
-            {
-                ShowDialog(ex.Message);
-            }
+            } while (false);
         }
 
         public ICommand DrawCommand => new RelayCommand(StartDraw);
