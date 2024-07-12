@@ -195,23 +195,20 @@ namespace Logos
 
         private void ClipboardChanged(object sender, SharpClipboard.ClipboardChangedEventArgs e)
         {
-            if (MainDisplayData.AutoDetect)
+            if (MainDisplayData.AutoDetect && e.ContentType.Equals(SharpClipboard.ContentTypes.Text))
             {
-                if (e.ContentType.Equals(SharpClipboard.ContentTypes.Text))
+                string strText = clipboard.ClipboardText;
+                if (Bible.Parse(ref strText, MainDisplayData))
                 {
-                    string strText = clipboard.ClipboardText;
-                    if (Bible.Parse(ref strText, MainDisplayData))
+                    if (!string.Equals(MainDisplayData.TextString, strText))
                     {
-                        if (!string.Equals(MainDisplayData.TextString, strText))
-                        {
-                            MainDisplayData.TextString = strText;
-                        }
-                        if (!MainDisplayData.IsTextDisplay)
-                        {
-                            MainDisplayData.IsTextDisplay = true;
-                        }
-                        Clipboard.Clear();
+                        MainDisplayData.TextString = strText;
                     }
+                    if (!MainDisplayData.IsTextDisplay)
+                    {
+                        MainDisplayData.IsTextDisplay = true;
+                    }
+                    Clipboard.Clear();
                 }
             }
         }
