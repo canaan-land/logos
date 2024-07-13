@@ -1,10 +1,10 @@
 # Logos
 
-Logos is a C# application designed to parse Bible verse text from theWord Bible software clipboard and display it on the screen.
+Logos is a C# application designed to parse Bible verse text from `theWord` Bible software clipboard and display it on the screen.
 
 ## Features
 
-- Parses Bible verses from theWord Bible software
+- Parses Bible verses from `theWord` Bible software
 - Displays parsed verses on the screen
 
 ## Installation
@@ -18,7 +18,7 @@ Logos is a C# application designed to parse Bible verse text from theWord Bible 
 
 ## Usage
 
-1. Copy a Bible verse from theWord Bible software.
+1. Copy a Bible verse from `theWord` Bible software.
 1. Run the application to see the verse displayed on your screen.
 
 ## Contributing
