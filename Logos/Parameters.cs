@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Linq;
+using System;
 using System.Text.Json.Serialization;
 using System.Windows.Media;
 
@@ -245,8 +245,9 @@ namespace Logos
 
         private static string GetColorName(Color color)
         {
-            return typeof(Colors).GetProperties()
-                .FirstOrDefault(prop => color.Equals(prop.GetValue(null))).Name;
+            var prop = Array.Find(typeof(Colors).GetProperties(),
+                prop => color.Equals(prop.GetValue(null)));
+            return prop?.Name;
         }
     }
 }

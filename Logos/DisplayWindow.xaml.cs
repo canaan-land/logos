@@ -17,7 +17,7 @@ namespace Logos
         }
 
         private Point? savedPosition;
-        private static double prevX, prevY;
+        private double prevX, prevY;
 
         private void DisplayText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

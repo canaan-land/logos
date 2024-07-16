@@ -38,12 +38,9 @@ namespace Logos
 
         private void StringTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key.Equals(Key.Enter))
+            if (e.Key.Equals(Key.Enter) && !(DataContext as MainWindow).MainDisplayData.IsTextDisplay)
             {
-                if (!(DataContext as MainWindow).MainDisplayData.IsTextDisplay)
-                {
-                    DisplayButton.IsChecked = true;
-                }
+                DisplayButton.IsChecked = true;
             }
         }
 
