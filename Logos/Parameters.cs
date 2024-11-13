@@ -37,7 +37,7 @@ namespace Logos
         public int PenWidth { get; set; }
     }
 
-    public class DisplayData : ObservableObject
+    public partial class DisplayData : ObservableObject
     {
         private string textString;
         private bool isTextDisplay;

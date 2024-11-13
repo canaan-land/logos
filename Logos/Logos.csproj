@@ -11,6 +11,7 @@
     <ApplicationIcon>logos.ico</ApplicationIcon>
     <AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
