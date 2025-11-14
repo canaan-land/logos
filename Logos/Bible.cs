@@ -91,7 +91,7 @@ namespace Logos
         {
             string strToParse = strText.TrimStart(' ', '(');
 
-            string bookTC = new(strToParse.TakeWhile(c => !char.IsWhiteSpace(c)).ToArray());
+            string bookTC = new([.. strToParse.TakeWhile(c => !char.IsWhiteSpace(c))]);
             BookStruct sBook = Array.Find(BookList, b => b.TChinese.Equals(bookTC));
             if (sBook.TChinese is null)
             {

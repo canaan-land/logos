@@ -123,11 +123,8 @@ namespace Logos
         public void Undisplay()
         {
             HotkeyManager.Current.Remove("TextEscape");
-            if (displayWindow is not null)
-            {
-                displayWindow.Close();
-                displayWindow = null;
-            }
+            displayWindow?.Close();
+            displayWindow = null;
         }
 
         public ICommand PasteCommand => new RelayCommand(PasteTheWord);
@@ -174,11 +171,8 @@ namespace Logos
         public void StopDraw()
         {
             HotkeyManager.Current.Remove("DrawEscape");
-            if (drawWindow is not null)
-            {
-                drawWindow.Close();
-                drawWindow = null;
-            }
+            drawWindow?.Close();
+            drawWindow = null;
             WindowState = WindowState.Normal;
         }
 

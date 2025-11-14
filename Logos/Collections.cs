@@ -9,7 +9,7 @@ namespace Logos
     {
         public static List<string> GetList()
         {
-            return new InstalledFontCollection().Families.Select(font => font.Name).ToList();
+            return [.. new InstalledFontCollection().Families.Select(font => font.Name)];
         }
     }
 
@@ -17,11 +17,10 @@ namespace Logos
     {
         public static List<string> GetList()
         {
-            return typeof(Colors)
+            return [.. typeof(Colors)
                 .GetProperties()
                 .Where(prop => typeof(Color).IsAssignableFrom(prop.PropertyType))
-                .Select(prop => prop.Name)
-                .ToList();
+                .Select(prop => prop.Name)];
         }
     }
 }
