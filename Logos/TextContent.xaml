@@ -71,7 +71,7 @@
                                     <ComboBoxItem>96</ComboBoxItem>
                                 </ComboBox>
                                 <Separator Margin="6,6,6,6"/>
-                                <ListBox SelectionMode="Extended" Style="{StaticResource MaterialDesignToolToggleFlatListBox}">
+                                <ListBox SelectionMode="Multiple" Style="{StaticResource MaterialDesignToolToggleFlatListBox}">
                                     <ListBoxItem x:Name="BoldCheckbox" IsSelected="{Binding Path=MainDisplayData.TextFontBold, Mode=TwoWay}" ToolTip="粗體">
                                         <materialDesign:PackIcon Kind="FormatBold"/>
                                     </ListBoxItem>
