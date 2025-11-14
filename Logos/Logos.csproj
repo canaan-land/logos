@@ -4,10 +4,10 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows10.0.17763.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>4.6.0</Version>
+    <Version>4.7.0</Version>
     <Authors>Joseph Chen</Authors>
     <Company>迦南地</Company>
-    <Copyright>© 2020-2024 GPS刻影工作室</Copyright>
+    <Copyright>© 2020-2025 GPS刻影工作室</Copyright>
     <ApplicationIcon>logos.ico</ApplicationIcon>
     <AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
