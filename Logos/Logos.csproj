@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="FluentWPF" Version="0.10.2" />
     <PackageReference Include="MahApps.Metro" Version="2.4.11" />
     <PackageReference Include="MaterialDesignThemes" Version="5.3.1" />
